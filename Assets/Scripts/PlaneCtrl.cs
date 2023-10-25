@@ -15,6 +15,7 @@ public class PlaneCtrl : MonoBehaviour
     [Header("PlaneParameterValue")]
     public GameObject prefabroadway;
     public GameObject prefabroadside;
+
     public float roadmoveSpeed = 10.0f;
     // 新地块生成时间这里需要设定一个函数保证不同速度下道路的接合
     public float roadinitfrequency = 1.0f;
@@ -28,7 +29,7 @@ public class PlaneCtrl : MonoBehaviour
         // 初期生成玩家脚下的部分
         PrefabInitGamestart();
 
-        // 每2秒生成一个预制体作为后续的地面
+        // 每2秒生成一个预制体作为后续的地面（如果地块移动速度改变，生成间隔速度也改变）
         InvokeRepeating("PrefabInit", 0.0f, roadinitfrequency); 
     }
 
@@ -36,6 +37,7 @@ public class PlaneCtrl : MonoBehaviour
     void Update(){
         // 移动生成的预制体(Tag为road)
         PrefabisMoving();
+
     }
 
     void PrefabInitGamestart(){
