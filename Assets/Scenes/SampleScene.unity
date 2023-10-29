@@ -1360,15 +1360,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   point1: {fileID: 335387828}
-  point2: {fileID: 1406772927}
-  point3: {fileID: 173810137}
-  point4: {fileID: 1477427731}
-  point5: {fileID: 1164707439}
   prefabroadway: {fileID: 1200249567003872370, guid: 82173d22a14687f46b2cf1380050e968, type: 3}
   prefabroadside: {fileID: 8372449472378259831, guid: 5022fa8cd3b799540895740263987cd7, type: 3}
-  roadmoveSpeed: 10
-  roadinitfrequency: 1
-  destroyDistance: 60
+  plot_amount_max: 8
 --- !u!1001 &1200249566097834153
 PrefabInstance:
   m_ObjectHideFlags: 0
