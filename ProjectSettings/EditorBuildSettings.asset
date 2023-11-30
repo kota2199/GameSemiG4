@@ -4,5 +4,20 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Sakata/Scenes/Title.unity
+    guid: 1334c44845da6034aab6fab51c2280fe
+  - enabled: 1
+    path: Assets/Sakata/Scenes/UITestScene.unity
+    guid: f592d247fe42cbf4ebca98cb1d107f99
+  - enabled: 1
+    path: Assets/Sakata/Scenes/Stage2.unity
+    guid: 64a45cefe221b424ebdbe5a5eab217ac
+  - enabled: 1
+    path: Assets/Sakata/Scenes/Stage3.unity
+    guid: 89c30a99cbd8add428fda384dcfb873a
+  - enabled: 1
+    path: Assets/Sakata/Scenes/GameOverScene.unity
+    guid: b994a9b45d34e044da1646eba51138e4
   m_configObjects: {}
