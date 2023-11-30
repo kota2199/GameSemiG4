@@ -979,7 +979,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f6e19f1939fde3489e3ec675db27864, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartScene: UITestScene
+  StartScene: Stage1
   TitleScene: Title
   sound1: {fileID: 8300000, guid: e8db9bb933693f34886d16bbf29d1cee, type: 3}
 --- !u!82 &1845081492
