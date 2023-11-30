@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Sakata/Scenes/Title.unity
     guid: 1334c44845da6034aab6fab51c2280fe
   - enabled: 1
-    path: Assets/Sakata/Scenes/UITestScene.unity
+    path: Assets/Sakata/Scenes/Stage1.unity
     guid: f592d247fe42cbf4ebca98cb1d107f99
   - enabled: 1
     path: Assets/Sakata/Scenes/Stage2.unity
