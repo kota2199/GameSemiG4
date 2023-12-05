@@ -10,19 +10,19 @@ public class UI_HP : MonoBehaviour
     public Image Green;
     public Image Blue;
 
-    Test_Player PlayerScript;
+    PlayerHPManager hpManager;
 
     // Start is called before the first frame update
     void Start()
     {
-        GameObject Player = GameObject.Find("Demo_Player");
-        PlayerScript = Player.GetComponent<Test_Player>();
+        GameObject Player = GameObject.FindWithTag("Player");
+        hpManager = Player.GetComponent<PlayerHPManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        switch (PlayerScript.HP) {
+        switch (hpManager.hp) {
             case 1:
                 Red.enabled = true;
                 Green.enabled = false;

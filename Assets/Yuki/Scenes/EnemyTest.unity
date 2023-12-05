@@ -499,6 +499,19 @@ Transform:
 --- !u!1001 &1981280773
 PrefabInstance:
   m_ObjectHideFlags: 0
+<<<<<<< HEAD:Assets/Yuki/Scenes/SampleScene.unity
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 971797891}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b09c0459380643cf826dbe33f9c1875, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotateSpeed: 10
+  pattern: 0
+=======
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
@@ -553,3 +566,4 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d9e03a0c6674ca4eb6f5ee4248f8a48, type: 3}
+>>>>>>> 52b7675beccd7b75ff23449e881dc89f45e4efdb:Assets/Yuki/Scenes/EnemyTest.unity
