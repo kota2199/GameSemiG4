@@ -23,12 +23,19 @@ public class GameManager : MonoBehaviour
 
     PlayerHPManager hpScript;
 
+    Fade fadeScript;
+
     void Start()
     {
         GameObject Player = GameObject.FindWithTag("Player");
         hpScript = Player.GetComponent<PlayerHPManager>();
 
+        GameObject fade = GameObject.Find("Fade");
+        fadeScript = fade.GetComponent<Fade>();
+
         BossStage = 0;
+        fadeScript.FadeIn = true;
+        Invoke("GimmickStart", 2f);
     }
 
     // Update is called once per frame
@@ -40,12 +47,24 @@ public class GameManager : MonoBehaviour
         }
 
         if(hpScript.hp <= 0) {
-            SceneManager.LoadScene(GameOverScene);
+            StartCoroutine("GameOver");
         }
 
         if(BossStage == 2) {
             thisStage += 1;
             SceneManager.LoadScene("Stage" + thisStage);
         }
+    }
+
+    IEnumerator GameOver() {
+        Debug.Log("プレイヤーが倒れるアニメーション？");
+
+        yield return new WaitForSeconds(5);
+
+        SceneManager.LoadScene(GameOverScene);
+    }
+
+    void GimmickStart() {
+        Debug.Log("障害物生成開始");
     }
 }
