@@ -8,6 +8,9 @@ public class ObsManager : MonoBehaviour
     // healpool只会生成在两侧，而钥匙只生成在中间。
     // 障碍物种类越多，随机障碍物出现null的情况越小
 
+    // 用于暂停障碍物生成系统，不生成新的障碍物
+    public bool isPause = false;
+
     [Header("Obstacle Generation Order")]
     [Range(1,3)]
     public float Obs_Generation_Interval = 2f;
@@ -45,6 +48,17 @@ public class ObsManager : MonoBehaviour
     void Start(){
         // 每隔n秒调用决定下一个生成的物体类型的函数
         InvokeRepeating("Choose_Obs_Type", 0f, Obs_Generation_Interval);
+    }
+
+    void Update(){
+        // 暂停的原理是，将下一个物体的生成道路锁定为第0条路
+        if(isPause){
+            Which_Way_Generation = 0;
+            Which_Way_Generation_next = 0;
+        }else{
+            Which_Way_Generation = 2;
+            Which_Way_Generation_next = 2;
+        }
     }
 
     // 每隔n秒执行一次生成程序

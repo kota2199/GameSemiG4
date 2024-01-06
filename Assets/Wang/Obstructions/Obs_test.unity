@@ -1633,7 +1633,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Obs_Generation_Interval: 2
-  upperLimit: 10
+  Double_Obs_Percent: 50
   Which_Way_Generation: 2
   Leftway_Random_Obs:
   - {fileID: 779556169}
