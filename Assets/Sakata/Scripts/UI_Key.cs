@@ -13,6 +13,8 @@ public class UI_Key : MonoBehaviour
     public Image Key2;
     public Image Key3;
 
+    public Sprite CompKey;
+
     GameManager GMScript;
 
     public AudioClip KeyItemSound;
@@ -28,10 +30,6 @@ public class UI_Key : MonoBehaviour
 
         audioSource = GetComponent<AudioSource>();
         anim = GetComponent<Animator>();
-
-        Key1.color = new Color(0.6f, 0.6f, 0.6f, 1);
-        Key2.color = new Color(0.6f, 0.6f, 0.6f, 1);
-        Key3.color = new Color(0.6f, 0.6f, 0.6f, 1);
     }
 
     // Update is called once per frame
@@ -40,22 +38,22 @@ public class UI_Key : MonoBehaviour
         if(GMScript.BossStage == 0) {
             switch (OnKey) {
                 case 1:
-                    Key1.color = new Color(1, 1, 1, 1);
                     audioSource.PlayOneShot(KeyItemSound);
+                    Key1.sprite = CompKey;
                     anim.Play("Key1Anim");
                     GMScript.KeyCount += 1;
                     OnKey = 0;
                     break;
                 case 2:
-                    Key2.color = new Color(1, 1, 1, 1);
                     audioSource.PlayOneShot(KeyItemSound);
+                    Key2.sprite = CompKey;
                     anim.Play("Key2Anim");
                     GMScript.KeyCount += 1;
                     OnKey = 0;
                     break;
                 case 3:
-                    Key3.color = new Color(1, 1, 1, 1);
                     audioSource.PlayOneShot(KeyItemSound);
+                    Key3.sprite = CompKey;
                     anim.Play("Key3Anim");
                     GMScript.KeyCount += 1;
                     OnKey = 0;
