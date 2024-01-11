@@ -14,8 +14,10 @@ public class UI_Boss : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //GameObject Boss = GameObject.Find("Demo_Boss");
-        //BossScript = Boss.GetComponent<Test_Boss>();
+        GameObject Boss = GameObject.Find("Demo_Boss");
+        if(Boss != null) {
+            BossScript = Boss.GetComponent<Test_Boss>();
+        }
     }
 
     // Update is called once per frame
@@ -30,5 +32,9 @@ public class UI_Boss : MonoBehaviour
         //} else {
         //    Folder.SetActive(false);
         //}
+
+        if(BossScript == null) {
+            Folder.SetActive(false);
+        }
     }
 }
