@@ -41,13 +41,28 @@ public class ObsManager : MonoBehaviour
     [Header("Leftway_Key_Obs Prefab")]
     public GameObject Leftway_Heal;
     [Header("Middleway_Key_Obs Prefab")]
-    public GameObject Middleway_Key;
+    public GameObject Middleway_Key1;
+    public GameObject Middleway_Key2;
+    public GameObject Middleway_Key3;
     [Header("Rightway_Key_Obs Prefab")]
     public GameObject Rightway_Heal;
+
+    bool key1_is_restart;
+    bool key2_is_restart;
+    // bool key3_is_restart;
 
     void Start(){
         // 每隔n秒调用决定下一个生成的物体类型的函数
         InvokeRepeating("Choose_Obs_Type", 0f, Obs_Generation_Interval);
+        
+        // 初始化key的生成记录
+        Initialization_key_is_restart();
+    }
+
+    void Initialization_key_is_restart(){
+        key1_is_restart = false;
+        key2_is_restart = false;
+        // key3_is_restart = false;
     }
 
     void Update(){
@@ -83,7 +98,7 @@ public class ObsManager : MonoBehaviour
 
         if(randomNumber == 1){
             // 执行生成关键道具的函数
-            is_restart(Middleway_Key);
+            is_restartkey();
 
             upperLimit = 10;
         }else{
@@ -93,7 +108,25 @@ public class ObsManager : MonoBehaviour
             upperLimit --;
             // 理论上来说upperLimit变为1时,一定会roll到1，upperLimit就会重置为10
         }
+    }
 
+    // 如果生成了key1则生成key2，以此类推
+    void is_restartkey(){
+        if(!key1_is_restart && !isPause){
+            is_restart(Middleway_Key1);
+            key1_is_restart = true;
+        }else{
+            if(!key2_is_restart){
+                is_restart(Middleway_Key2);
+                is_restart(Rightway_Heal);
+                key2_is_restart = true;
+            }else{
+                is_restart(Middleway_Key3);
+                is_restart(Leftway_Heal);
+                // key3_is_restart = true;
+                Initialization_key_is_restart();
+            }
+        }
     }
 
     void Obs_Random_Generation(){
@@ -128,8 +161,10 @@ public class ObsManager : MonoBehaviour
     }
 
     void is_restart(GameObject Obs){
-        // 触发指定物体上的脚本中的restart(只会触发一次运动)
-        Obs.GetComponent<Obs_Ctrl>().is2start = true;
+        if(Obs){
+            // 触发指定物体上的脚本中的restart(只会触发一次运动)
+            Obs.GetComponent<Obs_Ctrl>().is2start = true;
+        }
     }
 
     void Try_Leftway_Random_Obs(){

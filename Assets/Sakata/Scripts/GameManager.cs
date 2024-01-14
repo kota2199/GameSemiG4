@@ -57,7 +57,7 @@ public class GameManager : MonoBehaviour
     }
 
     IEnumerator GameOver() {
-        Debug.Log("ƒvƒŒƒCƒ„[‚ª“|‚ê‚éƒAƒjƒ[ƒVƒ‡ƒ“H");
+        Debug.Log("ï¿½vï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½|ï¿½ï¿½ï¿½Aï¿½jï¿½ï¿½ï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½H");
 
         yield return new WaitForSeconds(5);
 
@@ -65,6 +65,6 @@ public class GameManager : MonoBehaviour
     }
 
     void GimmickStart() {
-        Debug.Log("áŠQ•¨¶¬ŠJn");
+        Debug.Log("ï¿½ï¿½Qï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Jï¿½n");
     }
 }

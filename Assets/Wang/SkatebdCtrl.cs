@@ -11,6 +11,12 @@ public class SkatebdCtrl : MonoBehaviour
     public bool is_healed = false;
 
     [Header("SketeBoard Paramter")]
+    [Range(0, 3)]
+    public float sketeboard_HPmax3;
+    public float sketeboard_HP2 = 0.7f;
+    public float sketeboard_HP1 = 0.4f;
+    // 血量上限为3时，低于70%则为2，低于40%则为1
+
     public float sketeboard_HP_max = 100.0f;
     public float sketeboard_HP_min = 0.0f;
     public float sketeboard_HP;
@@ -43,12 +49,31 @@ public class SkatebdCtrl : MonoBehaviour
     void Start(){
         // 初始化HP
         sketeboard_HP_initialization();
+
+        sketeboard_HPmax3 = 3f;
     }
 
     // Update is called once per frame
     void Update(){
         // 失败判定
         If_IsLose();
+        
+        // Debug.Log(sketeboard_HPmax3);
+
+        // 跟随100上限的HP数值，调整3上限的HP数值
+        if(sketeboard_HP == 0){
+            sketeboard_HPmax3 = 0;
+        }
+        if(sketeboard_HP <= sketeboard_HP_max * sketeboard_HP1){
+            sketeboard_HPmax3 = 1;
+        }else{
+            if(sketeboard_HP <= sketeboard_HP_max * sketeboard_HP2){
+                sketeboard_HPmax3 = 2;
+            }else{
+                sketeboard_HPmax3 = 3;
+            }
+        }
+
 
         // 跟随HP的百分比调整滑板大小
         Sketeboard_Size_Ctrl();
