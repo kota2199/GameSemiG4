@@ -20,6 +20,8 @@ public class GameManager : MonoBehaviour
     public string ClearScene;
     public string GameOverScene;
 
+    // ここでFindWithTag("Player")を使えず、publicで導入する--WANG
+    public GameObject Player;
 
     PlayerHPManager hpScript;
 
@@ -27,7 +29,8 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        GameObject Player = GameObject.FindWithTag("Player");
+        // ここでFindWithTag("Player")を使えず、publicで導入する--WANG
+        // GameObject Player = GameObject.FindWithTag("Player");
         hpScript = Player.GetComponent<PlayerHPManager>();
 
         GameObject fade = GameObject.Find("Fade");

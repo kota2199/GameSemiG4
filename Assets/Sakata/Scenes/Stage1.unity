@@ -769,6 +769,7 @@ MonoBehaviour:
   Heal_HP: 0
   HPDeadSound: {fileID: 8300000, guid: 78920bb8342964d429d2851e324839cd, type: 3}
   HPHealSound: {fileID: 8300000, guid: 48a93242202825648aebff441b3af21e, type: 3}
+  Player: {fileID: 1715001339}
 --- !u!95 &382835049
 Animator:
   serializedVersion: 4
@@ -1062,6 +1063,7 @@ MonoBehaviour:
   KeyMax: 3
   ClearScene: GameClearScene
   GameOverScene: GameOverScene
+  Player: {fileID: 1715001339}
 --- !u!4 &486681868
 Transform:
   m_ObjectHideFlags: 0
@@ -3107,6 +3109,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 3
+  SkateBoard_size: {fileID: 495706302}
 --- !u!1 &1757598982
 GameObject:
   m_ObjectHideFlags: 0

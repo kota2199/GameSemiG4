@@ -19,12 +19,16 @@ public class UI_HP : MonoBehaviour
 
     PlayerHPManager hpManager;
 
+    // ここでFindWithTag("Player")を使えず、publicで導入する--WANG
+    public GameObject Player;
+
     private Animator anim;
 
     // Start is called before the first frame update
     void Start()
     {
-        GameObject Player = GameObject.FindWithTag("Player");
+        // ここでFindWithTag("Player")を使えず、publicで導入する--WANG
+        // GameObject Player = GameObject.FindWithTag("Player");
         hpManager = Player.GetComponent<PlayerHPManager>();
 
         anim = GetComponent<Animator>();
