@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1027636430615025428}
   m_LocalRotation: {x: -0.2705981, y: 0.65328145, z: 0.65328145, w: 0.27059814}
-  m_LocalPosition: {x: 58.225227, y: 22.247583, z: -85.406784}
+  m_LocalPosition: {x: 56, y: 22.247583, z: -65}
   m_LocalScale: {x: 23.06019, y: 23.06019, z: 23.06019}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -109,7 +109,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1324807272904817015}
   m_LocalRotation: {x: -0.70453674, y: -0.06023267, z: -0.06023267, w: 0.7045368}
-  m_LocalPosition: {x: 56.97955, y: -15.534797, z: 2.8321187}
+  m_LocalPosition: {x: 56.97955, y: -15.534797, z: -52}
   m_LocalScale: {x: 18.432829, y: 18.432829, z: 18.432825}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -192,7 +192,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1994933328669008127}
   m_LocalRotation: {x: -0.03523219, y: 0.7062286, z: 0.70622844, w: 0.0352322}
-  m_LocalPosition: {x: -22.04698, y: 14.469282, z: 156.26344}
+  m_LocalPosition: {x: -22.04698, y: 14.469282, z: 111}
   m_LocalScale: {x: 60.495895, y: 60.495895, z: 60.495895}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -275,7 +275,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2370807322876396521}
   m_LocalRotation: {x: 0.32351065, y: 0.6287614, z: 0.6287614, w: -0.32351068}
-  m_LocalPosition: {x: 33.19282, y: 34.90612, z: -24.516865}
+  m_LocalPosition: {x: 75, y: 34.90612, z: 36}
   m_LocalScale: {x: 23.06019, y: 23.06019, z: 23.06019}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -358,7 +358,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3470848628881443499}
   m_LocalRotation: {x: -0.7047019, y: 0.05826832, z: 0.05826832, w: 0.70470196}
-  m_LocalPosition: {x: -32.327698, y: 28.750553, z: -134.0292}
+  m_LocalPosition: {x: -31, y: 28.750553, z: -124}
   m_LocalScale: {x: 23.060188, y: 23.060188, z: 23.06019}
   m_ConstrainProportionsScale: 0
   m_Children: []
