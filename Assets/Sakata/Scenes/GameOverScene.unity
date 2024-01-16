@@ -981,7 +981,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StartScene: Stage1
   TitleScene: Title
-  sound1: {fileID: 8300000, guid: e8db9bb933693f34886d16bbf29d1cee, type: 3}
+  StartSound: {fileID: 8300000, guid: 1a064ef42cfc8cf4293e0c559e1d25a6, type: 3}
+  CursorSound: {fileID: 8300000, guid: 486f9e151b9f5ef4ea3e16aaccd48236, type: 3}
+  SerectSound: {fileID: 8300000, guid: 70ff50a87a97aca42a1ad542dc4df1dd, type: 3}
+  anim: {fileID: 0}
 --- !u!82 &1845081492
 AudioSource:
   m_ObjectHideFlags: 0

@@ -7,6 +7,7 @@ TagManager:
   - Wayside
   - Roadway
   - Enemy
+  - PlayerHP
   layers:
   - Default
   - TransparentFX
