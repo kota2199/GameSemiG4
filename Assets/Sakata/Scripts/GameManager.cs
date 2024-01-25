@@ -23,9 +23,14 @@ public class GameManager : MonoBehaviour
     // ここでFindWithTag("Player")を使えず、publicで導入する--WANG
     public GameObject Player;
 
+    [SerializeField]
+    private GameObject boss;
+
     PlayerHPManager hpScript;
 
     Fade fadeScript;
+
+    bool bossTrigger = true;
 
     void Start()
     {
@@ -47,6 +52,11 @@ public class GameManager : MonoBehaviour
         if(KeyCount >= KeyMax) {
             BossStage = 1;
             KeyCount = 0;
+            if (bossTrigger)
+            {
+                Debug.Log("BOSS");
+                StartBossBattle();
+            }
         }
 
         if(hpScript.hp <= 0) {
@@ -62,12 +72,20 @@ public class GameManager : MonoBehaviour
     IEnumerator GameOver() {
         Debug.Log("�v���C���[���|���A�j���[�V�����H");
 
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(2);
 
         SceneManager.LoadScene(GameOverScene);
     }
 
     void GimmickStart() {
         Debug.Log("��Q�������J�n");
+    }
+
+    void StartBossBattle()
+    {
+        bossTrigger = false;
+        Vector3 playerPos = new Vector3(Player.transform.position.x, Player.transform.position.y, Player.transform.position.z);
+        boss.transform.position = new Vector3(playerPos.x, playerPos.y + 15, playerPos.z + 5);
+        boss.GetComponent<SnowManController>().startAttacking = true;
     }
 }

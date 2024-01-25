@@ -8,6 +8,9 @@ public class PlayerHPManager : MonoBehaviour
     [Range(0, 3)]
     public int hp = 3;
 
+    [SerializeField]
+    private UI_HP ui_hp;
+
     // プレイヤーのリアルタイムのHPパラメーターとここのhpをシンクロした
     public GameObject SkateBoard_size;
 

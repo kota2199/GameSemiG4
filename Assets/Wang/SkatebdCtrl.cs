@@ -45,12 +45,15 @@ public class SkatebdCtrl : MonoBehaviour
     public float example01_heal = 10.0f;
     public float example02_heal = 25.0f;
 
+    public UI_HP ui_hp;
+
     // Start is called before the first frame update
     void Start(){
         // 初始化HP
         sketeboard_HP_initialization();
 
         sketeboard_HPmax3 = 3;
+        ui_hp.UIUpdate(sketeboard_HPmax3);
     }
 
     // Update is called once per frame
@@ -64,6 +67,7 @@ public class SkatebdCtrl : MonoBehaviour
         if(sketeboard_HP > 0){
             if(sketeboard_HP <= sketeboard_HP_max * sketeboard_HP1){
                 sketeboard_HPmax3 = 1;
+        ui_hp.UIUpdate(sketeboard_HPmax3);
             }else{
                 if(sketeboard_HP <= sketeboard_HP_max * sketeboard_HP2){
                     sketeboard_HPmax3 = 2;
@@ -74,8 +78,9 @@ public class SkatebdCtrl : MonoBehaviour
         }else{
             sketeboard_HPmax3 = 0;
         }
-        
 
+
+        ui_hp.UIUpdate(sketeboard_HPmax3);
 
         // 跟随HP的百分比调整滑板大小
         Sketeboard_Size_Ctrl();
@@ -115,13 +120,11 @@ public class SkatebdCtrl : MonoBehaviour
     public void SketeBoard_IsDameged(float damege_value){
         sketeboard_HP += damege_value;
         Sketeboard_HP_Limit();
-        Debug.Log(sketeboard_HP);
     }
 
     public void SketeBoard_IsHealed(float heal_value){
         sketeboard_HP += heal_value;
         Sketeboard_HP_Limit();
-        Debug.Log(sketeboard_HP);
     }
 
     public void Sketeboard_HP_Limit(){
@@ -137,7 +140,7 @@ public class SkatebdCtrl : MonoBehaviour
     public void Sketeboard_Size_Ctrl(){
         // 跟随HP的百分比调整滑板大小
         float sizescale = (sketeboard_size_max - sketeboard_size_min) * sketeboard_HP / sketeboard_HP_max + sketeboard_size_min;
-        Vector3 newScale = new Vector3(sizescale, sizescale, sizescale);
+        Vector3 newScale = new Vector3(sizescale, 1, sizescale);
         transform.localScale = newScale;
     }
 
