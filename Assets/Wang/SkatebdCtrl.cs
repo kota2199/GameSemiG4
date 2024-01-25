@@ -142,7 +142,7 @@ public class SkatebdCtrl : MonoBehaviour
     public void Sketeboard_Size_Ctrl(){
         // 跟随HP的百分比调整滑板大小
         float sizescale = (sketeboard_size_max - sketeboard_size_min) * sketeboard_HP / sketeboard_HP_max + sketeboard_size_min;
-        Vector3 newScale = new Vector3(sizescale, sizescale, sizescale);
+        Vector3 newScale = new Vector3(sizescale, 1, sizescale);
         transform.localScale = newScale;
     }
 

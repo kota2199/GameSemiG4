@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SnowManController : MonoBehaviour
 {
-    private Transform player; // プレイヤーのTransformを指定
+    //private Transform player; // プレイヤーのTransformを指定
     [SerializeField]
     private float attackInterval = 5.0f; // 攻撃の間隔（秒）
     [SerializeField]
@@ -12,62 +12,70 @@ public class SnowManController : MonoBehaviour
     [SerializeField]
     private Vector3 attackPositionOffset = new Vector3(0, 5, 0); // プレイヤーに向かう位置のオフセット
 
+    [SerializeField]
+    private Transform player;
+
     private Vector3 originalPosition;
     private Vector3 attackStartPosition;
     private Vector3 attackEndPosition;
     private bool isAttacking = false;
+    public bool startAttacking = false;
     private float elapsedTime = 0.0f;
 
     private void Start()
     {
-        player = GameObject.FindWithTag("Player").transform;
+        //player = GameObject.FindWithTag("Player").transform;
         originalPosition = transform.position;
         attackStartPosition = transform.position;
     }
 
     private void Update()
     {
-        attackStartPosition = new Vector3(player.transform.position.x, player.transform.position.y + 1, player.transform.position.z + 10);
-        if (!isAttacking)
+        if (startAttacking)
         {
-            elapsedTime += Time.deltaTime;
-            if (elapsedTime >= attackInterval)
-            {
-                // 攻撃を開始
-                isAttacking = true;
-                elapsedTime = 0.0f;
-                attackStartPosition = transform.position;
-                attackEndPosition = player.transform.position;
-            }
-        }
-        else
-        {
-            if (Vector3.Distance(transform.position, attackEndPosition + attackPositionOffset) > 0.1f)
-            {
-                // プレイヤーの方向を向く
-                transform.LookAt(player);
 
-                // プレイヤーに向かって攻撃中
-                float step = attackSpeed * Time.deltaTime;
-                transform.position = Vector3.MoveTowards(transform.position, attackEndPosition + attackPositionOffset, step);
+        attackStartPosition = new Vector3(player.transform.position.x, player.transform.position.y + 4, player.transform.position.z + 15);
+            if (!isAttacking)
+            {
+                elapsedTime += Time.deltaTime;
+                if (elapsedTime >= attackInterval)
+                {
+                    // 攻撃を開始
+                    isAttacking = true;
+                    elapsedTime = 0.0f;
+                    attackStartPosition = transform.position;
+                    attackEndPosition = player.transform.position;
+                }
             }
             else
             {
-                // 攻撃を終了し、帰還を開始
-                isAttacking = false;
+                if (Vector3.Distance(transform.position, attackEndPosition + attackPositionOffset) > 0.1f)
+                {
+                    // プレイヤーの方向を向く
+                    transform.LookAt(player);
+
+                    // プレイヤーに向かって攻撃中
+                    float step = attackSpeed * Time.deltaTime;
+                    transform.position = Vector3.MoveTowards(transform.position, attackEndPosition + attackPositionOffset, step);
+                }
+                else
+                {
+                    // 攻撃を終了し、帰還を開始
+                    isAttacking = false;
+                }
             }
-        }
 
-        if (!isAttacking)
-        {
-            // 帰還中
-            float step = attackSpeed * Time.deltaTime;
-            transform.position = Vector3.MoveTowards(transform.position, attackStartPosition, step);
-
-            // 帰還完了
-            if (Vector3.Distance(transform.position, attackStartPosition) < 0.1f)
+            if (!isAttacking)
             {
-                transform.position = attackStartPosition;
+                // 帰還中
+                float step = attackSpeed * Time.deltaTime;
+                transform.position = Vector3.MoveTowards(transform.position, attackStartPosition, step);
+
+                // 帰還完了
+                if (Vector3.Distance(transform.position, attackStartPosition) < 0.1f)
+                {
+                    transform.position = attackStartPosition;
+                }
             }
         }
     }
