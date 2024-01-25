@@ -112,21 +112,24 @@ public class ObsManager : MonoBehaviour
 
     // 如果生成了key1则生成key2，以此类推
     void is_restartkey(){
-        if(!key1_is_restart && !isPause){
-            is_restart(Middleway_Key1);
-            key1_is_restart = true;
-        }else{
-            if(!key2_is_restart){
-                is_restart(Middleway_Key2);
-                is_restart(Rightway_Heal);
-                key2_is_restart = true;
-            }else{
-                is_restart(Middleway_Key3);
-                is_restart(Leftway_Heal);
-                // key3_is_restart = true;
-                Initialization_key_is_restart();
+        if (!isPause) {
+            if (!key1_is_restart) {
+                is_restart(Middleway_Key1);
+                key1_is_restart = true;
+            } else {
+                if (!key2_is_restart) {
+                    is_restart(Middleway_Key2);
+                    is_restart(Rightway_Heal);
+                    key2_is_restart = true;
+                } else {
+                    is_restart(Middleway_Key3);
+                    is_restart(Leftway_Heal);
+                    // key3_is_restart = true;
+                    Initialization_key_is_restart();
+                }
             }
         }
+        
     }
 
     void Obs_Random_Generation(){
