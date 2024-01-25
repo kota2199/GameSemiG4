@@ -7,6 +7,10 @@ public class GameManager : MonoBehaviour
 {
     public static int thisStage = 1;
 
+    public static bool CutorialMode = true;
+    public GameObject Cutorial;
+    public GameObject CutorialUI;
+
     [HideInInspector]
     public int BossStage = 0; //0=???????? 1=?????? 2=?????I??
 
@@ -22,6 +26,7 @@ public class GameManager : MonoBehaviour
 
     // ここでFindWithTag("Player")を使えず、publicで導入する--WANG
     public GameObject Player;
+    public GameObject ObsManager;
 
     [SerializeField]
     private GameObject boss;
@@ -30,7 +35,12 @@ public class GameManager : MonoBehaviour
 
     Fade fadeScript;
 
+<<<<<<< HEAD
     bool bossTrigger = true;
+=======
+    AudioSource audioSource;
+    public AudioClip Stage1BGM;
+>>>>>>> 86bcd74a2cd2675cce56d9139ba5989fba832178
 
     void Start()
     {
@@ -41,9 +51,22 @@ public class GameManager : MonoBehaviour
         GameObject fade = GameObject.Find("Fade");
         fadeScript = fade.GetComponent<Fade>();
 
+        audioSource = GetComponent<AudioSource>();
+
         BossStage = 0;
         fadeScript.FadeIn = true;
         Invoke("GimmickStart", 2f);
+
+        if (!CutorialMode) {
+            Destroy(Cutorial);
+            Destroy(CutorialUI);
+            Player.GetComponent<PlayerMovement>().isMove = true;
+            ObsManager.SetActive(true);
+            ObsManager.GetComponent<ObsManager>().isPause = false;
+            audioSource.enabled = false;
+        } else {
+            audioSource.enabled = true;
+        }
     }
 
     // Update is called once per frame
@@ -67,6 +90,25 @@ public class GameManager : MonoBehaviour
             thisStage += 1;
             SceneManager.LoadScene("Stage" + thisStage);
         }
+
+        switch (thisStage) {
+            case 1:
+                if(audioSource == null) {
+                    break;
+                }
+                audioSource.Play();
+                audioSource.clip = Stage1BGM;
+                break;
+            case 2:
+                if (audioSource == null) {
+                    break;
+                }
+                audioSource.Play();
+                audioSource.clip = Stage1BGM;
+                break;
+            default:
+                break;
+        }
     }
 
     IEnumerator GameOver() {
@@ -81,11 +123,21 @@ public class GameManager : MonoBehaviour
         Debug.Log("��Q�������J�n");
     }
 
+<<<<<<< HEAD
     void StartBossBattle()
     {
         bossTrigger = false;
         Vector3 playerPos = new Vector3(Player.transform.position.x, Player.transform.position.y, Player.transform.position.z);
         boss.transform.position = new Vector3(playerPos.x, playerPos.y + 15, playerPos.z + 5);
         boss.GetComponent<SnowManController>().startAttacking = true;
+=======
+    public void CutorialFinish() {
+        Destroy(Cutorial);
+        Destroy(CutorialUI);
+        Player.GetComponent<PlayerMovement>().isMove = true;
+        ObsManager.SetActive(true);
+        ObsManager.GetComponent<ObsManager>().isPause = false;
+        audioSource.enabled = true;
+>>>>>>> 86bcd74a2cd2675cce56d9139ba5989fba832178
     }
 }
