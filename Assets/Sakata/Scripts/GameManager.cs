@@ -35,12 +35,10 @@ public class GameManager : MonoBehaviour
 
     Fade fadeScript;
 
-<<<<<<< HEAD
     bool bossTrigger = true;
-=======
+
     AudioSource audioSource;
     public AudioClip Stage1BGM;
->>>>>>> 86bcd74a2cd2675cce56d9139ba5989fba832178
 
     void Start()
     {
@@ -123,14 +121,13 @@ public class GameManager : MonoBehaviour
         Debug.Log("��Q�������J�n");
     }
 
-<<<<<<< HEAD
     void StartBossBattle()
     {
         bossTrigger = false;
         Vector3 playerPos = new Vector3(Player.transform.position.x, Player.transform.position.y, Player.transform.position.z);
         boss.transform.position = new Vector3(playerPos.x, playerPos.y + 15, playerPos.z + 5);
         boss.GetComponent<SnowManController>().startAttacking = true;
-=======
+    }
     public void CutorialFinish() {
         Destroy(Cutorial);
         Destroy(CutorialUI);
@@ -138,6 +135,5 @@ public class GameManager : MonoBehaviour
         ObsManager.SetActive(true);
         ObsManager.GetComponent<ObsManager>().isPause = false;
         audioSource.enabled = true;
->>>>>>> 86bcd74a2cd2675cce56d9139ba5989fba832178
     }
 }
