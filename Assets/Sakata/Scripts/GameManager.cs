@@ -120,14 +120,15 @@ public class GameManager : MonoBehaviour
         Debug.Log("��Q�������J�n");
     }
 
-    public void CutorialFinish() {
+    public void CutorialFinish()
+    {
         Destroy(Cutorial);
         Destroy(CutorialUI);
         Player.GetComponent<PlayerMovement>().isMove = true;
         ObsManager.SetActive(true);
         ObsManager.GetComponent<ObsManager>().isPause = false;
         audioSource.enabled = true;
-
+    }
     void StartBossBattle()
     {
         bossTrigger = false;
