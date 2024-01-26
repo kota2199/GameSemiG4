@@ -8,6 +8,7 @@ TagManager:
   - Roadway
   - Enemy
   - PlayerHP
+  - CutorialTree
   layers:
   - Default
   - TransparentFX
