@@ -28,12 +28,16 @@ public class GameManager : MonoBehaviour
     public GameObject Player;
     public GameObject ObsManager;
 
+    [SerializeField]
+    private GameObject boss;
+
     PlayerHPManager hpScript;
 
     Fade fadeScript;
 
     AudioSource audioSource;
     public AudioClip Stage1BGM;
+    bool bossTrigger = true;
 
     void Start()
     {
@@ -68,6 +72,11 @@ public class GameManager : MonoBehaviour
         if(KeyCount >= KeyMax) {
             BossStage = 1;
             KeyCount = 0;
+            if (bossTrigger)
+            {
+                Debug.Log("BOSS");
+                StartBossBattle();
+            }
         }
 
         if(hpScript.hp <= 0) {
@@ -102,7 +111,7 @@ public class GameManager : MonoBehaviour
     IEnumerator GameOver() {
         Debug.Log("�v���C���[���|���A�j���[�V�����H");
 
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(2);
 
         SceneManager.LoadScene(GameOverScene);
     }
@@ -118,5 +127,12 @@ public class GameManager : MonoBehaviour
         ObsManager.SetActive(true);
         ObsManager.GetComponent<ObsManager>().isPause = false;
         audioSource.enabled = true;
+
+    void StartBossBattle()
+    {
+        bossTrigger = false;
+        Vector3 playerPos = new Vector3(Player.transform.position.x, Player.transform.position.y, Player.transform.position.z);
+        boss.transform.position = new Vector3(playerPos.x, playerPos.y + 15, playerPos.z + 5);
+        boss.GetComponent<SnowManController>().startAttacking = true;
     }
 }

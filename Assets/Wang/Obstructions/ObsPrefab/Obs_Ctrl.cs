@@ -101,7 +101,6 @@ public class Obs_Ctrl : MonoBehaviour
 
             // 测试时player上没有脚本，所以报错无所谓
             if(is_damege){
-                Debug.Log(this.gameObject. name);
                 try{
                     other.GetComponent<SkatebdCtrl>().is_dameged = true;
                     //hithp
