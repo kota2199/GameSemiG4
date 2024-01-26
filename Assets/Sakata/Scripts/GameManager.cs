@@ -40,7 +40,6 @@ public class GameManager : MonoBehaviour
     AudioSource audioSource;
     public AudioClip Stage1BGM;
 
-    bool bossTrigger = true;
 
 
     void Start()
@@ -138,13 +137,5 @@ public class GameManager : MonoBehaviour
         ObsManager.SetActive(true);
         ObsManager.GetComponent<ObsManager>().isPause = false;
         audioSource.enabled = true;
-}
-    void StartBossBattle()
-    {
-        bossTrigger = false;
-        Vector3 playerPos = new Vector3(Player.transform.position.x, Player.transform.position.y, Player.transform.position.z);
-        boss.transform.position = new Vector3(playerPos.x, playerPos.y + 15, playerPos.z + 5);
-        boss.GetComponent<SnowManController>().startAttacking = true;
-
     }
 }
