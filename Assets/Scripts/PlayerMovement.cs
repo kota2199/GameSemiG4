@@ -59,26 +59,31 @@ public class PlayerMovement : MonoBehaviour
     [Range(1,2)]
     public int groundorsky = 1;
 
+    //Sakata
+    public bool isMove;
+
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.A)){
-            toleft = true;
-        }
-        if (Input.GetKeyDown(KeyCode.D)){
-            toright = true;
+        if (isMove) {
+            if (Input.GetKeyDown(KeyCode.A)) {
+                toleft = true;
+            }
+            if (Input.GetKeyDown(KeyCode.D)) {
+                toright = true;
+            }
+
+            if (Input.GetKeyDown(KeyCode.W)) {
+                tojump = true;
+            }
+
+            if (Input.GetKeyDown(KeyCode.S)) {
+                tofall = true;
+            }
         }
 
-        if (Input.GetKeyDown(KeyCode.W)){
-            tojump = true;
-        }
-
-        if (Input.GetKeyDown(KeyCode.S)){
-            tofall = true;
-        }
-
-        // 根据玩家输入计算路
-        PlayerOnWhichRoad1();
+            // 根据玩家输入计算路
+            PlayerOnWhichRoad1();
 
         // 执行横向位置移动
         WhichRoad2Move2();
