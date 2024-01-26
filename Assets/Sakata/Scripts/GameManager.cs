@@ -35,6 +35,7 @@ public class GameManager : MonoBehaviour
 
     Fade fadeScript;
 
+    bool bossTrigger = true;
 
     AudioSource audioSource;
     public AudioClip Stage1BGM;
@@ -123,6 +124,13 @@ public class GameManager : MonoBehaviour
         Debug.Log("��Q�������J�n");
     }
 
+    void StartBossBattle()
+    {
+        bossTrigger = false;
+        Vector3 playerPos = new Vector3(Player.transform.position.x, Player.transform.position.y, Player.transform.position.z);
+        boss.transform.position = new Vector3(playerPos.x, playerPos.y + 15, playerPos.z + 5);
+        boss.GetComponent<SnowManController>().startAttacking = true;
+    }
     public void CutorialFinish() {
         Destroy(Cutorial);
         Destroy(CutorialUI);
