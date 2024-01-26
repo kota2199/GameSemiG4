@@ -63,19 +63,19 @@ public class UI_HP : MonoBehaviour
     {
         if (Hit_HP) {
             switch (hpManager.hp) {
-                case 0:
+                case 1:
                     Debug.Log("hhpp");
                     anim.Play("HP3_DeadAnim");
                     audioSource.PlayOneShot(HPDeadSound);
                     Hit_HP = false;
                     break;
-                case 1:
+                case 2:
                     Debug.Log("hhpp");
                     anim.Play("HP2_DeadAnim");
                     audioSource.PlayOneShot(HPDeadSound);
                     Hit_HP = false;
                     break;
-                case 2:
+                case 3:
                     Debug.Log("hhpp");
                     anim.Play("HP1_DeadAnim");
                     audioSource.PlayOneShot(HPDeadSound);
@@ -88,12 +88,12 @@ public class UI_HP : MonoBehaviour
         }
         if (Heal_HP) {
             switch (hpManager.hp) {
-                case 2:
+                case 1:
                     anim.Play("HP2_HealAnim");
                     audioSource.PlayOneShot(HPHealSound);
                     Heal_HP = false;
                     break;
-                case 3:
+                case 2:
                     anim.Play("HP1_HealAnim");
                     audioSource.PlayOneShot(HPHealSound);
                     Heal_HP = false;
@@ -105,6 +105,7 @@ public class UI_HP : MonoBehaviour
         }
     }
 
+    /*
     public void damaged(int hp)
     {
         switch (hp)
@@ -132,31 +133,34 @@ public class UI_HP : MonoBehaviour
                 break;
         }
     }
+    */
 
-    //public void UIUpdate() {
-    //    switch (hpManager.hp) {
-    //        case 1:
-    //            Red.enabled = true;
-    //            Green.enabled = false;
-    //            Blue.enabled = false;
-    //            break;
-    //        case 2:
-    //            Red.enabled = true;
-    //            Green.enabled = true;
-    //            Blue.enabled = false;
-    //            break;
-    //        case 3:
-    //            Red.enabled = true;
-    //            Green.enabled = true;
-    //            Blue.enabled = true;
-    //            break;
-    //        default:
-    //            Red.enabled = false;
-    //            Green.enabled = false;
-    //            Blue.enabled = false;
-    //            break;
-    //    }
+    public void UIUpdate() {
+        switch (hpManager.hp) {
+            case 1:
+                Red.enabled = true;
+                Green.enabled = false;
+                Blue.enabled = false;
+                break;
+            case 2:
+                Red.enabled = true;
+                Green.enabled = true;
+                Blue.enabled = false;
+                break;
+            case 3:
+                Red.enabled = true;
+                Green.enabled = true;
+                Blue.enabled = true;
+                break;
+            default:
+                Red.enabled = false;
+                Green.enabled = false;
+                Blue.enabled = false;
+                break;
+        }   
+    }
 
+    /*
     public void UIUpdate(float hp)
     {
         switch (hp)
@@ -183,4 +187,5 @@ public class UI_HP : MonoBehaviour
                 break;
         }
     }
+    */
 }

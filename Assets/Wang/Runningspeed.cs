@@ -8,6 +8,8 @@ public class Runningspeed : MonoBehaviour
     [Range(0.5f,3f)]
     public float runningspeed = 1.0f;
 
+    public bool isPause = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +19,11 @@ public class Runningspeed : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Time.timeScale = runningspeed;
+        if (isPause) {
+            runningspeed = 0f;
+        } else {
+            Time.timeScale = runningspeed;
+        }
+        
     }
 }
