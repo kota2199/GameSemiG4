@@ -75,7 +75,7 @@ public class GameManager : MonoBehaviour
             if (bossTrigger)
             {
                 Debug.Log("BOSS");
-                StartBossBattle();
+                //StartBossBattle();
             }
         }
 
@@ -134,6 +134,6 @@ public class GameManager : MonoBehaviour
         bossTrigger = false;
         Vector3 playerPos = new Vector3(Player.transform.position.x, Player.transform.position.y, Player.transform.position.z);
         boss.transform.position = new Vector3(playerPos.x, playerPos.y + 15, playerPos.z + 5);
-        boss.GetComponent<SnowManController>().startAttacking = true;
+        //boss.GetComponent<SnowManController>().startAttacking = true;
     }
 }
