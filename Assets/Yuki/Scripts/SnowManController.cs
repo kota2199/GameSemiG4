@@ -55,6 +55,12 @@ public class SnowManController : MonoBehaviour
     [SerializeField]
     private UI_Boss ui_boss;
 
+    [SerializeField]
+    private SkatebdCtrl skatebdCtrl;
+
+    [SerializeField]
+    private UI_Key ui_key;
+
     private void Start()
     {
         originalPosition = transform.position;
@@ -198,17 +204,33 @@ public class SnowManController : MonoBehaviour
         if (other.CompareTag("Player") && isAttacking)
         {
             //PlayerHP--;
-        }
-        else if(other.CompareTag("Player") && !isAttacking)
-        {
-            myHP--;
-            if (myHP <= 0)
+            // もしPlayerのTagを持っているものとコレクションした
+            if (other.CompareTag("Player"))
             {
-                isAttacking = false;
-                //FlayAway
-                //hpUi.SetActive(false);
-                maxHP += 2;
-                myHP = maxHP;
+                Debug.Log("is_dameged");
+                // 方法一、この（）にダメージを入れ、負数を使ってください
+                // (Assets\Wang\SkatebdCtrl.cs\115)
+                other.GetComponent<SkatebdCtrl>().SketeBoard_IsDameged(-50);
+                // 方法二、障害物と同じダメージのメソッドを使って（ダメージが１０点）
+                // (Assets\Wang\Obstructions\ObsPrefab\Obs_Ctrl.cs\105)
+                other.GetComponent<SkatebdCtrl>().is_dameged = true;
+                // 方法三、Playerとコレクションすればメソッドを使わず、プレイヤーのHPにダメージを与える
+                skatebdCtrl.GetComponent<SkatebdCtrl>().sketeboard_HP -= 1;
+                Debug.Log(skatebdCtrl.GetComponent<SkatebdCtrl>().sketeboard_HP);
+
+                ui_key.MinusItemCount();
+            }
+            else if (other.CompareTag("Player") && !isAttacking)
+            {
+                myHP--;
+                if (myHP <= 0)
+                {
+                    isAttacking = false;
+                    //FlayAway
+                    //hpUi.SetActive(false);
+                    maxHP += 2;
+                    myHP = maxHP;
+                }
             }
         }
     }

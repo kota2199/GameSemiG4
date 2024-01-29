@@ -14,7 +14,8 @@ public class UI_Key : MonoBehaviour
     public Image Key2;
     public Image Key3;
 
-    public Sprite CompKey;
+    public Sprite item_1, item_2, item_3;
+    public Sprite CompItem_1, CompItem_2, CompItem_3;
 
     GameManager GMScript;
 
@@ -90,7 +91,7 @@ public class UI_Key : MonoBehaviour
         {
             case 1:
                 audioSource.PlayOneShot(KeyItemSound);
-                Key1.sprite = CompKey;
+                Key1.sprite = CompItem_1;
                 anim.Play("Key1Anim");
                 //GMScript.KeyCount += 1;
                 itemCount++;
@@ -98,7 +99,7 @@ public class UI_Key : MonoBehaviour
                 break;
             case 2:
                 audioSource.PlayOneShot(KeyItemSound);
-                Key2.sprite = CompKey;
+                Key2.sprite = CompItem_2;
                 anim.Play("Key2Anim");
                 //GMScript.KeyCount += 1;
                 itemCount++;
@@ -106,7 +107,7 @@ public class UI_Key : MonoBehaviour
                 break;
             case 3:
                 audioSource.PlayOneShot(KeyItemSound);
-                Key3.sprite = CompKey;
+                Key3.sprite = CompItem_3;
                 anim.Play("Key3Anim");
                 //GMScript.KeyCount += 1;
                 itemCount++;
@@ -115,5 +116,14 @@ public class UI_Key : MonoBehaviour
             default:
                 break;
         }
+    }
+
+    public void MinusItemCount()
+    {
+        itemCount = 1;
+        Key1.sprite = item_1;
+        Key2.sprite = item_2;
+        Key3.sprite = item_3;
+        playerMovement.valueOfSpeedUp = itemCount;
     }
 }

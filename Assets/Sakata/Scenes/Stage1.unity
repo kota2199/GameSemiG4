@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4482442, g: 0.49827123, b: 0.5755804, a: 1}
+  m_IndirectSpecularColor: {r: 0.4482453, g: 0.49827206, b: 0.5755818, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1304,7 +1304,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: db3784db6ad3a784e8ac3a98c413bfef, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ea8306cd299e19546b8a6aeefb2a7537, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3578,6 +3578,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1715001341}
     - target: {fileID: 5779653215743290012, guid: 1d9e03a0c6674ca4eb6f5ee4248f8a48, type: 3}
+      propertyPath: ui_key
+      value: 
+      objectReference: {fileID: 1517415853}
+    - target: {fileID: 5779653215743290012, guid: 1d9e03a0c6674ca4eb6f5ee4248f8a48, type: 3}
       propertyPath: ui_boss
       value: 
       objectReference: {fileID: 1641854380}
@@ -3585,6 +3589,14 @@ PrefabInstance:
       propertyPath: speedOfObs
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5779653215743290012, guid: 1d9e03a0c6674ca4eb6f5ee4248f8a48, type: 3}
+      propertyPath: skatebdCtrl
+      value: 
+      objectReference: {fileID: 1973185693}
+    - target: {fileID: 5779653215743290012, guid: 1d9e03a0c6674ca4eb6f5ee4248f8a48, type: 3}
+      propertyPath: timerCounter
+      value: 
+      objectReference: {fileID: 49603642}
     - target: {fileID: 5779653215743290012, guid: 1d9e03a0c6674ca4eb6f5ee4248f8a48, type: 3}
       propertyPath: amountOfSpeedUp
       value: 2
@@ -5608,7 +5620,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: db3784db6ad3a784e8ac3a98c413bfef, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 280ce78b758ce9441a38960463312293, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5948,7 +5960,7 @@ GameObject:
   - component: {fileID: 1517415854}
   - component: {fileID: 1517415855}
   m_Layer: 5
-  m_Name: UI_Key
+  m_Name: UI_Item
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5993,7 +6005,12 @@ MonoBehaviour:
   Key1: {fileID: 230400227}
   Key2: {fileID: 1413825322}
   Key3: {fileID: 1988456471}
-  CompKey: {fileID: 21300000, guid: bfc6642a76353ae438af41576fa29f1b, type: 3}
+  item_1: {fileID: 21300000, guid: ea8306cd299e19546b8a6aeefb2a7537, type: 3}
+  item_2: {fileID: 21300000, guid: 280ce78b758ce9441a38960463312293, type: 3}
+  item_3: {fileID: 21300000, guid: d7a1d901587af2a408e1bf6a557d8620, type: 3}
+  CompItem_1: {fileID: 21300000, guid: 00834a59ab2848a4e9251354c0287bb1, type: 3}
+  CompItem_2: {fileID: 21300000, guid: 164d9b1afd289cb41914eea8c1ad04c7, type: 3}
+  CompItem_3: {fileID: 21300000, guid: d9ab11e3485377544bc2be6a0b57304c, type: 3}
   KeyItemSound: {fileID: 8300000, guid: 061e7c313faf215428a8f8c0e3c5f4f5, type: 3}
   itemCount: 1
   playerMovement: {fileID: 1715001340}
@@ -7941,6 +7958,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 382835048}
     - target: {fileID: 623234949391162256, guid: 1148c26717734ee45981d88683422e3b, type: 3}
+      propertyPath: ui_key
+      value: 
+      objectReference: {fileID: 1517415853}
+    - target: {fileID: 623234949391162256, guid: 1148c26717734ee45981d88683422e3b, type: 3}
       propertyPath: snowManCtrl
       value: 
       objectReference: {fileID: 1311002088}
@@ -7981,6 +8002,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 382835048}
     - target: {fileID: 1761503742416753399, guid: 1148c26717734ee45981d88683422e3b, type: 3}
+      propertyPath: ui_key
+      value: 
+      objectReference: {fileID: 1517415853}
+    - target: {fileID: 1761503742416753399, guid: 1148c26717734ee45981d88683422e3b, type: 3}
       propertyPath: snowManCtrl
       value: 
       objectReference: {fileID: 1311002088}
@@ -7996,6 +8021,10 @@ PrefabInstance:
       propertyPath: ui_hp
       value: 
       objectReference: {fileID: 382835048}
+    - target: {fileID: 1761503742457692565, guid: 1148c26717734ee45981d88683422e3b, type: 3}
+      propertyPath: ui_key
+      value: 
+      objectReference: {fileID: 1517415853}
     - target: {fileID: 1761503742457692565, guid: 1148c26717734ee45981d88683422e3b, type: 3}
       propertyPath: snowManCtrl
       value: 
@@ -8017,6 +8046,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 382835048}
     - target: {fileID: 1761503742653550781, guid: 1148c26717734ee45981d88683422e3b, type: 3}
+      propertyPath: ui_key
+      value: 
+      objectReference: {fileID: 1517415853}
+    - target: {fileID: 1761503742653550781, guid: 1148c26717734ee45981d88683422e3b, type: 3}
       propertyPath: snowManCtrl
       value: 
       objectReference: {fileID: 1311002088}
@@ -8024,6 +8057,10 @@ PrefabInstance:
       propertyPath: ui_hp
       value: 
       objectReference: {fileID: 382835048}
+    - target: {fileID: 1761503742826599570, guid: 1148c26717734ee45981d88683422e3b, type: 3}
+      propertyPath: ui_key
+      value: 
+      objectReference: {fileID: 1517415853}
     - target: {fileID: 1761503742826599570, guid: 1148c26717734ee45981d88683422e3b, type: 3}
       propertyPath: snowManCtrl
       value: 
@@ -8048,6 +8085,10 @@ PrefabInstance:
       propertyPath: ui_hp
       value: 
       objectReference: {fileID: 382835048}
+    - target: {fileID: 1761503742839931063, guid: 1148c26717734ee45981d88683422e3b, type: 3}
+      propertyPath: ui_key
+      value: 
+      objectReference: {fileID: 1517415853}
     - target: {fileID: 1761503742839931063, guid: 1148c26717734ee45981d88683422e3b, type: 3}
       propertyPath: snowManCtrl
       value: 
@@ -8056,6 +8097,10 @@ PrefabInstance:
       propertyPath: ui_hp
       value: 
       objectReference: {fileID: 382835048}
+    - target: {fileID: 4815146440863614798, guid: 1148c26717734ee45981d88683422e3b, type: 3}
+      propertyPath: ui_key
+      value: 
+      objectReference: {fileID: 1517415853}
     - target: {fileID: 4815146440863614798, guid: 1148c26717734ee45981d88683422e3b, type: 3}
       propertyPath: snowManCtrl
       value: 
@@ -8076,6 +8121,10 @@ PrefabInstance:
       propertyPath: ui_hp
       value: 
       objectReference: {fileID: 382835048}
+    - target: {fileID: 4815146442278310198, guid: 1148c26717734ee45981d88683422e3b, type: 3}
+      propertyPath: ui_key
+      value: 
+      objectReference: {fileID: 1517415853}
     - target: {fileID: 4815146442278310198, guid: 1148c26717734ee45981d88683422e3b, type: 3}
       propertyPath: snowManCtrl
       value: 
@@ -8185,6 +8234,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 382835048}
     - target: {fileID: 4815146442470392796, guid: 1148c26717734ee45981d88683422e3b, type: 3}
+      propertyPath: ui_key
+      value: 
+      objectReference: {fileID: 1517415853}
+    - target: {fileID: 4815146442470392796, guid: 1148c26717734ee45981d88683422e3b, type: 3}
       propertyPath: snowManCtrl
       value: 
       objectReference: {fileID: 1311002088}
@@ -8212,6 +8265,10 @@ PrefabInstance:
       propertyPath: ui_hp
       value: 
       objectReference: {fileID: 382835048}
+    - target: {fileID: 5385004636389012187, guid: 1148c26717734ee45981d88683422e3b, type: 3}
+      propertyPath: ui_key
+      value: 
+      objectReference: {fileID: 1517415853}
     - target: {fileID: 5385004636389012187, guid: 1148c26717734ee45981d88683422e3b, type: 3}
       propertyPath: snowManCtrl
       value: 
@@ -8260,6 +8317,10 @@ PrefabInstance:
       propertyPath: ui_hp
       value: 
       objectReference: {fileID: 382835048}
+    - target: {fileID: 5385004636756700599, guid: 1148c26717734ee45981d88683422e3b, type: 3}
+      propertyPath: ui_key
+      value: 
+      objectReference: {fileID: 1517415853}
     - target: {fileID: 5385004636756700599, guid: 1148c26717734ee45981d88683422e3b, type: 3}
       propertyPath: snowManCtrl
       value: 
@@ -8282,6 +8343,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4639731899248369928, guid: f1896da4bbe84b64d946f67a37a4a905, type: 3}
   m_PrefabInstance: {fileID: 1243065825}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1973185693 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8522481169019296080, guid: f1896da4bbe84b64d946f67a37a4a905, type: 3}
+  m_PrefabInstance: {fileID: 1243065825}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1973185689}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e153f0a388989924b825cefc401a52b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1988456469
 GameObject:
   m_ObjectHideFlags: 0
@@ -8340,7 +8412,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: db3784db6ad3a784e8ac3a98c413bfef, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d7a1d901587af2a408e1bf6a557d8620, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -9041,6 +9113,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 382835048}
     - target: {fileID: 8083604145654626609, guid: cdad3317043cb6747b2babe7b811c84c, type: 3}
+      propertyPath: ui_key
+      value: 
+      objectReference: {fileID: 1517415853}
+    - target: {fileID: 8083604145654626609, guid: cdad3317043cb6747b2babe7b811c84c, type: 3}
       propertyPath: end_point
       value: 
       objectReference: {fileID: 118807474}
@@ -9073,6 +9149,10 @@ PrefabInstance:
       propertyPath: ui_hp
       value: 
       objectReference: {fileID: 382835048}
+    - target: {fileID: 8155993864212824244, guid: 84ad1bb863a1d3a49a394634155a4ad9, type: 3}
+      propertyPath: ui_key
+      value: 
+      objectReference: {fileID: 1517415853}
     - target: {fileID: 8155993864212824244, guid: 84ad1bb863a1d3a49a394634155a4ad9, type: 3}
       propertyPath: end_point
       value: 
@@ -9150,6 +9230,10 @@ PrefabInstance:
       propertyPath: ui_hp
       value: 
       objectReference: {fileID: 382835048}
+    - target: {fileID: 8409311685924470199, guid: 662468044f6efb94283dc85a8d00afe3, type: 3}
+      propertyPath: ui_key
+      value: 
+      objectReference: {fileID: 1517415853}
     - target: {fileID: 8409311685924470199, guid: 662468044f6efb94283dc85a8d00afe3, type: 3}
       propertyPath: end_point
       value: 

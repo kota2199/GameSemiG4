@@ -44,6 +44,9 @@ public class Obs_Ctrl : MonoBehaviour
     [SerializeField]
     private SnowManController snowManCtrl;
 
+    [SerializeField]
+    private UI_Key ui_key;
+
     // 是否持续触发
 
     // 特殊效果触发位置
@@ -119,7 +122,7 @@ public class Obs_Ctrl : MonoBehaviour
 
                 // SkatebdCtrl
                 // other.GetComponent<SkatebdCtrl>().is_dameged = true;
-
+                ui_key.MinusItemCount();
             }
 
             if(is_heal){
