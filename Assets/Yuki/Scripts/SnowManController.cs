@@ -1,15 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SnowManController : MonoBehaviour
 {
     [SerializeField]
-    private float attackInterval = 5.0f; // 攻撃の間隔（秒）
+    private float attackInterval = 5.0f; // ?U???????u?i?b?j
     [SerializeField]
-    private float attackSpeed = 5.0f; // 攻撃の速度
+    private float attackSpeed = 5.0f; // ?U???????x
     [SerializeField]
-    private Vector3 attackPositionOffset = new Vector3(0, 5, 0); // プレイヤーに向かう位置のオフセット
+    private Vector3 attackPositionOffset = new Vector3(0, 5, 0); // ?v???C???[???????????u???I?t?Z?b?g
 
     [SerializeField]
     private Transform player;
@@ -35,20 +36,42 @@ public class SnowManController : MonoBehaviour
 
     private int attackCount = 0;
 
+    public int speedOfObs = 0;
+
+    [SerializeField]
+    private int amountOfSpeedUp = 1;
+
+    [SerializeField]
+    private int maxHP = 3;
+
+    [SerializeField]
+    private int myHP;
+
+    private bool ableToAttack = false;
+
+    [SerializeField]
+    private GameObject hpUi;
+
+    [SerializeField]
+    private UI_Boss ui_boss;
+
     private void Start()
     {
         originalPosition = transform.position;
         attackStartPosition = transform.position;
+
+        myHP = maxHP;
 
         StartCoroutine(attack());
     }
 
     private IEnumerator attack()
     {
-        //本番はwhileなし。ボスが倒れたら実行
+        //?{????while?????B?{?X???|?????????s
         while (true)
         {
             yield return new WaitForSeconds(20);
+            hpUi.SetActive(true);
             if (attackCount < 2)
             {
                 SetAttackMode(attackCount);
@@ -60,7 +83,6 @@ public class SnowManController : MonoBehaviour
                 SetAttackMode(index);
             }
         }
-        yield return new WaitForSeconds(5);
         if(attackCount < 2)
         {
             SetAttackMode(attackCount);
@@ -98,8 +120,15 @@ public class SnowManController : MonoBehaviour
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            myHP--;
+        }
         if (isAttacking)
         {
+            ui_boss.BossHPSlider.maxValue = maxHP;
+            ui_boss.BossHPSlider.value = myHP;
+            //Attack mode is 1.
             if (Mode == attackMode.pattern1)
             {
                 attackStartPosition = new Vector3(player.transform.position.x, player.transform.position.y + 4, player.transform.position.z + 15);
@@ -109,9 +138,10 @@ public class SnowManController : MonoBehaviour
                     elapsedTime += Time.deltaTime;
                     if (elapsedTime >= attackInterval)
                     {
-                        // 攻撃を開始
+                        // ?U?????J?n
                         elapsedTime = 0.0f;
                         attackToPlayer_p1 = true;
+                        ableToAttack = true;
                         attackStartPosition = transform.position;
                         attackEndPosition = player.transform.position;
                     }
@@ -120,16 +150,16 @@ public class SnowManController : MonoBehaviour
                 {
                     if (Vector3.Distance(transform.position, attackEndPosition + attackPositionOffset) > 0.1f)
                     {
-                        // プレイヤーの方向を向く
+                        // ?v???C???[????????????
                         transform.LookAt(player);
 
-                        // プレイヤーに向かって攻撃中
+                        // ?v???C???[???????????U????
                         float step = attackSpeed * Time.deltaTime;
                         transform.position = Vector3.MoveTowards(transform.position, attackEndPosition + attackPositionOffset, step);
                     }
                     else
                     {
-                        // 攻撃を終了し、帰還を開始
+                        // ?U?????I?????A?A?????J?n
                         attackToPlayer_p1 = false;
                         returnToBase_p1 = true;
                     }
@@ -137,15 +167,16 @@ public class SnowManController : MonoBehaviour
 
                 if (returnToBase_p1)
                 {
-                    // 帰還中
+                    // ?A????
                     float step = attackSpeed * Time.deltaTime;
                     transform.position = Vector3.MoveTowards(transform.position, attackStartPosition, step);
 
-                    // 帰還完了
+                    // ?A??????
                     if (Vector3.Distance(transform.position, attackStartPosition) < 0.1f)
                     {
                         transform.position = attackStartPosition;
                         returnToBase_p1 = false;
+                        ableToAttack = false;
                     }
                 }
             }
@@ -158,6 +189,26 @@ public class SnowManController : MonoBehaviour
             if (Mode == attackMode.pattern3)
             {
                 Debug.Log("Mode3");
+            }
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player") && isAttacking)
+        {
+            //PlayerHP--;
+        }
+        else if(other.CompareTag("Player") && !isAttacking)
+        {
+            myHP--;
+            if (myHP <= 0)
+            {
+                isAttacking = false;
+                //FlayAway
+                //hpUi.SetActive(false);
+                maxHP += 2;
+                myHP = maxHP;
             }
         }
     }

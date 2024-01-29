@@ -69,24 +69,24 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(KeyCount >= KeyMax) {
-            BossStage = 1;
-            KeyCount = 0;
-            if (bossTrigger)
-            {
-                Debug.Log("BOSS");
-                //StartBossBattle();
-            }
-        }
+        //if(KeyCount >= KeyMax) {
+        //    BossStage = 1;
+        //    KeyCount = 0;
+        //    if (bossTrigger)
+        //    {
+        //        Debug.Log("ItemCom");
+        //        //StartBossBattle();
+        //    }
+        //}
 
         if(hpScript.hp <= 0) {
             StartCoroutine("GameOver");
         }
 
-        if(BossStage == 2) {
-            thisStage += 1;
-            SceneManager.LoadScene("Stage" + thisStage);
-        }
+        //if(BossStage == 2) {
+        //    thisStage += 1;
+        //    SceneManager.LoadScene("Stage" + thisStage);
+        //}
 
         switch (thisStage) {
             case 1:
@@ -125,6 +125,7 @@ public class GameManager : MonoBehaviour
         Destroy(Cutorial);
         Destroy(CutorialUI);
         Player.GetComponent<PlayerMovement>().isMove = true;
+        //timer
         ObsManager.SetActive(true);
         ObsManager.GetComponent<ObsManager>().isPause = false;
         audioSource.enabled = true;

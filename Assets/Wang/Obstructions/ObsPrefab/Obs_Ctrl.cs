@@ -40,6 +40,10 @@ public class Obs_Ctrl : MonoBehaviour
 
 
     public UI_HP ui_hp;
+
+    [SerializeField]
+    private SnowManController snowManCtrl;
+
     // 是否持续触发
 
     // 特殊效果触发位置
@@ -59,7 +63,7 @@ public class Obs_Ctrl : MonoBehaviour
 
         // 判定物体是否在终点等待
         iswaiting2start();
-        
+        obs_add_speed = snowManCtrl.speedOfObs;
     }
 
     void iswaiting2start(){

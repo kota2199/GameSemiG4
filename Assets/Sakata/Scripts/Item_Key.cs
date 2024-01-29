@@ -8,10 +8,11 @@ public class Item_Key : MonoBehaviour
 
     void OnTriggerEnter(Collider other) {
         if (other.gameObject.tag == "Player") {
-            UI_Key KeyScript;
+            UI_Key UI_Item;
             GameObject obj = GameObject.Find("UI_Key");
-            KeyScript = obj.GetComponent<UI_Key>();
-            KeyScript.OnKey = KeyNumber;
+            UI_Item = obj.GetComponent<UI_Key>();
+            UI_Item.OnKey = KeyNumber;
+            UI_Item.AddItemCount();
             Destroy(this.gameObject);
         }
     }

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4482453, g: 0.49827206, b: 0.5755818, a: 1}
+  m_IndirectSpecularColor: {r: 0.4482442, g: 0.49827123, b: 0.5755804, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -241,7 +241,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d13a7e3a7dc9ab4d99cb91f34c01196, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timerText: {fileID: 1934335855}
+  timerObj: {fileID: 1934335853}
   timer: 0
   gameManager: {fileID: 486681867}
   obsManager: {fileID: 1952088254}
@@ -3232,7 +3232,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -3570,9 +3570,25 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 5779653215743290012, guid: 1d9e03a0c6674ca4eb6f5ee4248f8a48, type: 3}
+      propertyPath: hpUi
+      value: 
+      objectReference: {fileID: 1323502472}
+    - target: {fileID: 5779653215743290012, guid: 1d9e03a0c6674ca4eb6f5ee4248f8a48, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 1715001341}
+    - target: {fileID: 5779653215743290012, guid: 1d9e03a0c6674ca4eb6f5ee4248f8a48, type: 3}
+      propertyPath: ui_boss
+      value: 
+      objectReference: {fileID: 1641854380}
+    - target: {fileID: 5779653215743290012, guid: 1d9e03a0c6674ca4eb6f5ee4248f8a48, type: 3}
+      propertyPath: speedOfObs
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5779653215743290012, guid: 1d9e03a0c6674ca4eb6f5ee4248f8a48, type: 3}
+      propertyPath: amountOfSpeedUp
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5779653215743290013, guid: 1d9e03a0c6674ca4eb6f5ee4248f8a48, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -3666,7 +3682,7 @@ RectTransform:
   m_GameObject: {fileID: 897956201}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.39, y: 0.39, z: 0.39}
+  m_LocalScale: {x: 0.45, y: 0.45, z: 0.45}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 763695791}
@@ -5207,6 +5223,17 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1311002088 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5779653215743290012, guid: 1d9e03a0c6674ca4eb6f5ee4248f8a48, type: 3}
+  m_PrefabInstance: {fileID: 891840863}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0781c3fa316131e4196296c26da6aef3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1323502472
 GameObject:
   m_ObjectHideFlags: 0
@@ -5222,7 +5249,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1323502473
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5968,6 +5995,8 @@ MonoBehaviour:
   Key3: {fileID: 1988456471}
   CompKey: {fileID: 21300000, guid: bfc6642a76353ae438af41576fa29f1b, type: 3}
   KeyItemSound: {fileID: 8300000, guid: 061e7c313faf215428a8f8c0e3c5f4f5, type: 3}
+  itemCount: 1
+  playerMovement: {fileID: 1715001340}
 --- !u!82 &1517415854
 AudioSource:
   m_ObjectHideFlags: 0
@@ -6731,6 +6760,7 @@ MonoBehaviour:
   road: 2
   groundorsky: 1
   isMove: 0
+  valueOfSpeedUp: 1
 --- !u!4 &1715001341
 Transform:
   m_ObjectHideFlags: 0
@@ -7441,7 +7471,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1894009647
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7514,7 +7544,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FadeIn: 0
   FadeOut: 0
-  FadeTime: 3
+  FadeTime: 5
 --- !u!1 &1905355232
 GameObject:
   m_ObjectHideFlags: 0
@@ -7773,7 +7803,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1934335854
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7910,6 +7940,10 @@ PrefabInstance:
       propertyPath: ui_hp
       value: 
       objectReference: {fileID: 382835048}
+    - target: {fileID: 623234949391162256, guid: 1148c26717734ee45981d88683422e3b, type: 3}
+      propertyPath: snowManCtrl
+      value: 
+      objectReference: {fileID: 1311002088}
     - target: {fileID: 623234949391162268, guid: 1148c26717734ee45981d88683422e3b, type: 3}
       propertyPath: m_LocalScale.x
       value: 2
@@ -7946,6 +7980,10 @@ PrefabInstance:
       propertyPath: ui_hp
       value: 
       objectReference: {fileID: 382835048}
+    - target: {fileID: 1761503742416753399, guid: 1148c26717734ee45981d88683422e3b, type: 3}
+      propertyPath: snowManCtrl
+      value: 
+      objectReference: {fileID: 1311002088}
     - target: {fileID: 1761503742457692564, guid: 1148c26717734ee45981d88683422e3b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -7958,6 +7996,10 @@ PrefabInstance:
       propertyPath: ui_hp
       value: 
       objectReference: {fileID: 382835048}
+    - target: {fileID: 1761503742457692565, guid: 1148c26717734ee45981d88683422e3b, type: 3}
+      propertyPath: snowManCtrl
+      value: 
+      objectReference: {fileID: 1311002088}
     - target: {fileID: 1761503742653550776, guid: 1148c26717734ee45981d88683422e3b, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -7974,10 +8016,18 @@ PrefabInstance:
       propertyPath: ui_hp
       value: 
       objectReference: {fileID: 382835048}
+    - target: {fileID: 1761503742653550781, guid: 1148c26717734ee45981d88683422e3b, type: 3}
+      propertyPath: snowManCtrl
+      value: 
+      objectReference: {fileID: 1311002088}
     - target: {fileID: 1761503742826599570, guid: 1148c26717734ee45981d88683422e3b, type: 3}
       propertyPath: ui_hp
       value: 
       objectReference: {fileID: 382835048}
+    - target: {fileID: 1761503742826599570, guid: 1148c26717734ee45981d88683422e3b, type: 3}
+      propertyPath: snowManCtrl
+      value: 
+      objectReference: {fileID: 1311002088}
     - target: {fileID: 1761503742826599571, guid: 1148c26717734ee45981d88683422e3b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -7998,10 +8048,18 @@ PrefabInstance:
       propertyPath: ui_hp
       value: 
       objectReference: {fileID: 382835048}
+    - target: {fileID: 1761503742839931063, guid: 1148c26717734ee45981d88683422e3b, type: 3}
+      propertyPath: snowManCtrl
+      value: 
+      objectReference: {fileID: 1311002088}
     - target: {fileID: 4815146440863614798, guid: 1148c26717734ee45981d88683422e3b, type: 3}
       propertyPath: ui_hp
       value: 
       objectReference: {fileID: 382835048}
+    - target: {fileID: 4815146440863614798, guid: 1148c26717734ee45981d88683422e3b, type: 3}
+      propertyPath: snowManCtrl
+      value: 
+      objectReference: {fileID: 1311002088}
     - target: {fileID: 4815146440863614799, guid: 1148c26717734ee45981d88683422e3b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -8018,6 +8076,10 @@ PrefabInstance:
       propertyPath: ui_hp
       value: 
       objectReference: {fileID: 382835048}
+    - target: {fileID: 4815146442278310198, guid: 1148c26717734ee45981d88683422e3b, type: 3}
+      propertyPath: snowManCtrl
+      value: 
+      objectReference: {fileID: 1311002088}
     - target: {fileID: 4815146442278310202, guid: 1148c26717734ee45981d88683422e3b, type: 3}
       propertyPath: m_LocalScale.x
       value: 2
@@ -8122,6 +8184,10 @@ PrefabInstance:
       propertyPath: ui_hp
       value: 
       objectReference: {fileID: 382835048}
+    - target: {fileID: 4815146442470392796, guid: 1148c26717734ee45981d88683422e3b, type: 3}
+      propertyPath: snowManCtrl
+      value: 
+      objectReference: {fileID: 1311002088}
     - target: {fileID: 4815146442470392800, guid: 1148c26717734ee45981d88683422e3b, type: 3}
       propertyPath: m_LocalScale.x
       value: 2
@@ -8146,6 +8212,10 @@ PrefabInstance:
       propertyPath: ui_hp
       value: 
       objectReference: {fileID: 382835048}
+    - target: {fileID: 5385004636389012187, guid: 1148c26717734ee45981d88683422e3b, type: 3}
+      propertyPath: snowManCtrl
+      value: 
+      objectReference: {fileID: 1311002088}
     - target: {fileID: 5385004636389012199, guid: 1148c26717734ee45981d88683422e3b, type: 3}
       propertyPath: m_LocalScale.x
       value: 2
@@ -8190,6 +8260,10 @@ PrefabInstance:
       propertyPath: ui_hp
       value: 
       objectReference: {fileID: 382835048}
+    - target: {fileID: 5385004636756700599, guid: 1148c26717734ee45981d88683422e3b, type: 3}
+      propertyPath: snowManCtrl
+      value: 
+      objectReference: {fileID: 1311002088}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1148c26717734ee45981d88683422e3b, type: 3}
 --- !u!114 &1952088254 stripped
@@ -8518,7 +8592,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0.472, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -8975,6 +9049,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 162997282}
     - target: {fileID: 8083604145654626609, guid: cdad3317043cb6747b2babe7b811c84c, type: 3}
+      propertyPath: snowManCtrl
+      value: 
+      objectReference: {fileID: 1311002088}
+    - target: {fileID: 8083604145654626609, guid: cdad3317043cb6747b2babe7b811c84c, type: 3}
       propertyPath: start_point
       value: 
       objectReference: {fileID: 1997417552}
@@ -9003,6 +9081,10 @@ PrefabInstance:
       propertyPath: which_way
       value: 
       objectReference: {fileID: 162997282}
+    - target: {fileID: 8155993864212824244, guid: 84ad1bb863a1d3a49a394634155a4ad9, type: 3}
+      propertyPath: snowManCtrl
+      value: 
+      objectReference: {fileID: 1311002088}
     - target: {fileID: 8155993864212824244, guid: 84ad1bb863a1d3a49a394634155a4ad9, type: 3}
       propertyPath: start_point
       value: 
@@ -9076,6 +9158,10 @@ PrefabInstance:
       propertyPath: which_way
       value: 
       objectReference: {fileID: 162997282}
+    - target: {fileID: 8409311685924470199, guid: 662468044f6efb94283dc85a8d00afe3, type: 3}
+      propertyPath: snowManCtrl
+      value: 
+      objectReference: {fileID: 1311002088}
     - target: {fileID: 8409311685924470199, guid: 662468044f6efb94283dc85a8d00afe3, type: 3}
       propertyPath: start_point
       value: 
