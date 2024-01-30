@@ -48,6 +48,8 @@ public class SkatebdCtrl : MonoBehaviour
     public UI_HP ui_hp;
     public UI_Key ui_key;
 
+    public GameObject camera;
+
     // Start is called before the first frame update
     void Start(){
         // 初始化HP
@@ -122,7 +124,10 @@ public class SkatebdCtrl : MonoBehaviour
         sketeboard_HP += damege_value;
         ui_hp.Hit_HP = true;
         ui_key.OnLost = true;
+
+        camera.GetComponent<Cameramove>().is_shock = true;
         Sketeboard_HP_Limit();
+
     }
 
     public void SketeBoard_IsHealed(float heal_value){

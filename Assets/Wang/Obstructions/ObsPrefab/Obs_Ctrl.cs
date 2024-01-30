@@ -66,7 +66,7 @@ public class Obs_Ctrl : MonoBehaviour
 
         // 判定物体是否在终点等待
         iswaiting2start();
-        obs_add_speed = snowManCtrl.speedOfObs;
+        // obs_add_speed = snowManCtrl.speedOfObs;
     }
 
     void iswaiting2start(){

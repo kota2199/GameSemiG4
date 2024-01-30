@@ -18,7 +18,7 @@ public class PlayerMovement : MonoBehaviour
     // 玩家横向移动速度
     public float playerhorizontalmovespeed = 7.0f;
     // 玩家横向移动时微转身角度
-    public float playerhorizontalrotationspeed = 5.0f;
+    public float playerhorizontalrotationspeed = 25.0f;
     // 玩家跳跃速度
     public float playerjumpspeed = 8.0f;
     // 玩家坠落速度
@@ -29,21 +29,21 @@ public class PlayerMovement : MonoBehaviour
     public float playerjumpmiddlespeedpoint = 0.5f;
     // 玩家跳跃中段减速幅度
     [Range(0,1)]
-    public float playerjumpmiddlespeed = 0.7f;
+    public float playerjumpmiddlespeed = 0.6f;
 
     // 玩家跳跃末段减速高度
     [Range(0,1)]
     public float playerjumpattenuationspeedpoint = 0.8f;
     // 玩家跳跃末段减速幅度
     [Range(0,1)]
-    public float playerjumpattenuationspeed = 0.99f;
+    public float playerjumpattenuationspeed = 0.2f;
     
-    // 玩家坠落前期减速速度
+    // 玩家坠落前期减速高度
     [Range(0,1)]
     public float playerfallattenuationspeedpoint = 0.7f;
     // 玩家坠落前期减速幅度
     [Range(0,1)]
-    public float playerfallattenuationspeed = 0.5f;
+    public float playerfallattenuationspeed = 0.3f;
 
     [Header("PlayerMoveCtrl")]
     public bool toleft = false;

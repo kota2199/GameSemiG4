@@ -115,11 +115,14 @@ MonoBehaviour:
   start_point: {fileID: 0}
   end_point: {fileID: 0}
   obs_initial_speed: 10
-  obs_add_speed: 10
+  obs_add_speed: 0
   is_damege: 1
   is_heal: 0
   is_waiting: 0
   is2start: 0
+  ui_hp: {fileID: 0}
+  snowManCtrl: {fileID: 0}
+  ui_key: {fileID: 0}
 --- !u!1001 &8639497127080119434
 PrefabInstance:
   m_ObjectHideFlags: 0
