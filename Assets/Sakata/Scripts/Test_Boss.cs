@@ -31,6 +31,8 @@ public class Test_Boss : MonoBehaviour
     }
 
     // Update is called once per frame
+
+    /*
     void Update()
     {
         //if (GMScript.BossStage == 1) {
@@ -42,4 +44,5 @@ public class Test_Boss : MonoBehaviour
         //    BossTime = false;
         //}
     }
+    */
 }

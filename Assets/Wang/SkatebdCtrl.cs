@@ -45,6 +45,8 @@ public class SkatebdCtrl : MonoBehaviour
     public float example01_heal = 10.0f;
     public float example02_heal = 25.0f;
 
+    //Sakata
+    public UI_Key ui_key;
     public UI_HP ui_hp;
 
     // Start is called before the first frame update
@@ -120,6 +122,7 @@ public class SkatebdCtrl : MonoBehaviour
     public void SketeBoard_IsDameged(float damege_value){
         sketeboard_HP += damege_value;
         ui_hp.Hit_HP = true;
+        ui_key.OnLost = true;
         Sketeboard_HP_Limit();
     }
 

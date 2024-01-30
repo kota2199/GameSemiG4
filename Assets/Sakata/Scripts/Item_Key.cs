@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class Item_Key : MonoBehaviour
 {
-    public int KeyNumber;
-
     void OnTriggerEnter(Collider other) {
         if (other.gameObject.tag == "Player") {
-            UI_Key UI_Item;
-            GameObject obj = GameObject.Find("UI_Item");
-            UI_Item = obj.GetComponent<UI_Key>();
-            UI_Item.OnKey = KeyNumber;
-            UI_Item.AddItemCount();
+
+            UI_Key KeyScript;
+            GameObject obj = GameObject.Find("UI_Key");
+            KeyScript = obj.GetComponent<UI_Key>();
+            KeyScript.OnGet = true;
+
             Destroy(this.gameObject);
         }
     }
