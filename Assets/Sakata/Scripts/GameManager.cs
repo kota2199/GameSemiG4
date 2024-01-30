@@ -34,6 +34,9 @@ public class GameManager : MonoBehaviour
     public GameObject Player;
     public GameObject ObsManager;
 
+    [SerializeField]
+    private GameObject boss;
+
     PlayerHPManager hpScript;
 
     Fade fadeScript;
@@ -46,6 +49,7 @@ public class GameManager : MonoBehaviour
     private float BGMPitch;
     */
     public AudioClip Stage1BGM;
+    bool bossTrigger = true;
 
     void Start()
     {
@@ -91,9 +95,11 @@ public class GameManager : MonoBehaviour
                 }
             }
 
+
             if (hpScript.hp <= 0) {
                 StartCoroutine("GameOver");
             }
+
 
             if (BossStage > 0) {
                 ObsManager.GetComponent<ObsManager>().isPause = true;
@@ -102,6 +108,7 @@ public class GameManager : MonoBehaviour
                     BossFinish = false;
                 }
             }
+
 
             if (BGMStart) {
                 audioSource.volume -= 0.5f * Time.deltaTime;
@@ -146,12 +153,12 @@ public class GameManager : MonoBehaviour
     }
 
     IEnumerator GameOver() {
-        Debug.Log("�v���C���[���|���A�j���[�V�����H");
 
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(2);
 
         SceneManager.LoadScene(GameOverScene);
     }
+
 
     IEnumerator Interval() {
         BGMStop = true;
@@ -168,12 +175,15 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(2f);
 
         //BGMPitchUp = true;
+
     }
 
-    public void CutorialFinish() {
+    public void CutorialFinish()
+    {
         Destroy(Cutorial);
         Destroy(CutorialUI);
         Player.GetComponent<PlayerMovement>().isMove = true;
+        //timer
         ObsManager.SetActive(true);
         ObsManager.GetComponent<ObsManager>().isPause = false;
         audioSource.enabled = true;
@@ -239,5 +249,12 @@ public class GameManager : MonoBehaviour
                     break;
             }
         }
+    }
+    void StartBossBattle()
+    {
+        bossTrigger = false;
+        Vector3 playerPos = new Vector3(Player.transform.position.x, Player.transform.position.y, Player.transform.position.z);
+        boss.transform.position = new Vector3(playerPos.x, playerPos.y + 15, playerPos.z + 5);
+        //boss.GetComponent<SnowManController>().startAttacking = true;
     }
 }

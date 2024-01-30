@@ -42,6 +42,13 @@ public class Obs_Ctrl : MonoBehaviour
     public UI_Key ui_key;
     //Sakata
     public UI_HP ui_hp;
+
+    [SerializeField]
+    private SnowManController snowManCtrl;
+
+    [SerializeField]
+    private UI_Key ui_key;
+
     // 是否持续触发
 
     // 特殊效果触发位置
@@ -61,7 +68,7 @@ public class Obs_Ctrl : MonoBehaviour
 
         // 判定物体是否在终点等待
         iswaiting2start();
-        
+        obs_add_speed = snowManCtrl.speedOfObs;
     }
 
     void iswaiting2start(){
@@ -103,7 +110,6 @@ public class Obs_Ctrl : MonoBehaviour
 
             // 测试时player上没有脚本，所以报错无所谓
             if(is_damege){
-                Debug.Log(this.gameObject. name);
                 try{
                     other.GetComponent<SkatebdCtrl>().is_dameged = true;
                     //hithp
@@ -119,7 +125,7 @@ public class Obs_Ctrl : MonoBehaviour
 
                 // SkatebdCtrl
                 // other.GetComponent<SkatebdCtrl>().is_dameged = true;
-
+                ui_key.MinusItemCount();
             }
 
             if(is_heal){

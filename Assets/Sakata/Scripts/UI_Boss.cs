@@ -33,8 +33,8 @@ public class UI_Boss : MonoBehaviour
         //    Folder.SetActive(false);
         //}
 
-        if(BossScript == null) {
-            Folder.SetActive(false);
-        }
+        //if(BossScript == null) {
+        //    Folder.SetActive(false);
+        //}
     }
 }

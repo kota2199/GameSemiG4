@@ -62,6 +62,8 @@ public class PlayerMovement : MonoBehaviour
     //Sakata
     public bool isMove;
 
+    public int valueOfSpeedUp = 1;
+
     // Update is called once per frame
     void Update()
     {
@@ -232,7 +234,7 @@ public class PlayerMovement : MonoBehaviour
     // 控制玩家的横向移动至指定位置的x参数
     void MoveToTarget(GameObject targetPositionGameObject){
         // 只动x轴，其他轴不变，便于跳跃时的横向移动
-        float step = playerhorizontalmovespeed * Time.deltaTime;
+        float step = playerhorizontalmovespeed * Time.deltaTime * (valueOfSpeedUp + 1);
 
         Vector3 targetPosition = new Vector3(targetPositionGameObject.transform.position.x, playerbodyPrefab.transform.position.y, playerbodyPrefab.transform.position.z);
         playerbodyPrefab.transform.position = Vector3.MoveTowards(playerbodyPrefab.transform.position, targetPosition, step);
