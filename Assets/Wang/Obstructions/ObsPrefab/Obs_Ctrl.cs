@@ -39,6 +39,8 @@ public class Obs_Ctrl : MonoBehaviour
     public bool is2start;
 
 
+    public UI_Key ui_key;
+    //Sakata
     public UI_HP ui_hp;
     // 是否持续触发
 
@@ -109,6 +111,7 @@ public class Obs_Ctrl : MonoBehaviour
                     // 测试用的player的脚本 Player_HP_Obs_test
                     other.GetComponent<Player_HP_Obs_test>().is_dameged = true;
                     ui_hp.Hit_HP = true;
+                    ui_key.OnLost = true;
                 }
 
                 // Player_HP_Obs_test 测试用player的脚本
