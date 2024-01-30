@@ -258,7 +258,7 @@ public class SnowManController : MonoBehaviour
                 other.GetComponent<SkatebdCtrl>().is_dameged = true;
                 skatebdCtrl.GetComponent<SkatebdCtrl>().sketeboard_HP -= 1;
 
-                ui_key.MinusItemCount();
+                //ui_key.MinusItemCount();
             }
             //???????????????????????
             //else if (other.CompareTag("Player") && !ableToAttack)

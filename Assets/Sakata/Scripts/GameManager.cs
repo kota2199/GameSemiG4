@@ -14,11 +14,6 @@ public class GameManager : MonoBehaviour
     [HideInInspector]
     public int BossStage = 0; //0=???????? 1=?????? 2=?????I??
 
-    [Header("Key???l????")]
-    public int KeyCount;
-    [Header("Key?????W?l????")]
-    public int KeyMax;
-
     [Space(10)]
 
     public string ClearScene;
@@ -36,6 +31,11 @@ public class GameManager : MonoBehaviour
     Fade fadeScript;
 
     AudioSource audioSource;
+
+    public bool BGMStart;
+    public bool BGMStop;
+    public bool Play;
+
     public AudioClip Stage1BGM;
     bool bossTrigger = true;
 
@@ -52,7 +52,6 @@ public class GameManager : MonoBehaviour
 
         BossStage = 0;
         fadeScript.FadeIn = true;
-        Invoke("GimmickStart", 2f);
 
         if (!CutorialMode) {
             Destroy(Cutorial);
@@ -61,6 +60,8 @@ public class GameManager : MonoBehaviour
             ObsManager.SetActive(true);
             ObsManager.GetComponent<ObsManager>().isPause = false;
             audioSource.enabled = false;
+            BGMStart = true;
+            Play = true;
         } else {
             audioSource.enabled = true;
         }
@@ -69,42 +70,44 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if(KeyCount >= KeyMax) {
-        //    BossStage = 1;
-        //    KeyCount = 0;
-        //    if (bossTrigger)
-        //    {
-        //        Debug.Log("ItemCom");
-        //        //StartBossBattle();
-        //    }
-        //}
+        if (Play)
+        {
 
-        if(hpScript.hp <= 0) {
-            StartCoroutine("GameOver");
-        }
+            if (hpScript.hp <= 0)
+            {
+                StartCoroutine("GameOver");
+            }
 
-        //if(BossStage == 2) {
-        //    thisStage += 1;
-        //    SceneManager.LoadScene("Stage" + thisStage);
-        //}
-
-        switch (thisStage) {
-            case 1:
-                if(audioSource == null) {
-                    break;
+            if (BGMStart)
+            {
+                audioSource.volume -= 0.5f * Time.deltaTime;
+                if (audioSource.volume <= 0)
+                {
+                    BGM();
                 }
-                audioSource.Play();
-                audioSource.clip = Stage1BGM;
-                break;
-            case 2:
-                if (audioSource == null) {
-                    break;
+            }
+            if (BGMStop)
+            {
+                audioSource.Stop();
+                BGMStop = false;
+            }
+            /*
+            if (BGMPitchUp) {
+                audioSource.pitch += 0.001f;
+                if(audioSource.pitch >= BGMPitch) {
+                    audioSource.pitch = BGMPitch;
+                    BGMPitchUp = false;
                 }
-                audioSource.Play();
-                audioSource.clip = Stage1BGM;
-                break;
-            default:
-                break;
+            }
+            */
+            if (audioSource.volume < 0.3f && !BGMStart)
+            {
+                audioSource.volume += 0.001f;
+                if (audioSource.volume > 0.3f)
+                {
+                    audioSource.volume = 0.3f;
+                }
+            }
         }
     }
 
@@ -135,4 +138,74 @@ public class GameManager : MonoBehaviour
         boss.transform.position = new Vector3(playerPos.x, playerPos.y + 15, playerPos.z + 5);
         //boss.GetComponent<SnowManController>().startAttacking = true;
     }
-}
+
+        void BGM()
+        {
+            audioSource.volume = 0;
+            if (BossStage == 0)
+            {
+                switch (thisStage)
+                {
+                    case 1:
+                        if (audioSource == null)
+                        {
+                            break;
+                        }
+                        Debug.Log("stage1");
+                        audioSource.clip = Stage1BGM;
+                        audioSource.Play();
+                        BGMStart = false;
+                        break;
+                    case 2:
+                        if (audioSource == null)
+                        {
+                            break;
+                        }
+                        Debug.Log("stage2");
+                        audioSource.clip = Stage1BGM;
+                        audioSource.Play();
+                        BGMStart = false;
+                        break;
+                    default:
+                        break;
+                }
+            }
+            else if (BossStage > 0)
+            {
+                switch (BossStage)
+                {
+                    case 1:
+                        if (audioSource == null)
+                        {
+                            break;
+                        }
+                        Debug.Log("boss1");
+                        audioSource.clip = Stage1BGM;
+                        audioSource.Play();
+                        BGMStart = false;
+                        break;
+                    case 2:
+                        if (audioSource == null)
+                        {
+                            break;
+                        }
+                        Debug.Log("boss2");
+                        audioSource.clip = Stage1BGM;
+                        audioSource.Play();
+                        BGMStart = false;
+                        break;
+                    case 3:
+                        if (audioSource == null)
+                        {
+                            break;
+                        }
+                        audioSource.clip = Stage1BGM;
+                        audioSource.Play();
+                        BGMStart = false;
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
+    }

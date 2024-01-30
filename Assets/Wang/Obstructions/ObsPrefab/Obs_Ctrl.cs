@@ -122,7 +122,7 @@ public class Obs_Ctrl : MonoBehaviour
 
                 // SkatebdCtrl
                 // other.GetComponent<SkatebdCtrl>().is_dameged = true;
-                ui_key.MinusItemCount();
+                //ui_key.MinusItemCount();
             }
 
             if(is_heal){
