@@ -64,7 +64,6 @@ public class UI_HP : MonoBehaviour
         if (Hit_HP) {
             switch (hpManager.hp) {
                 case 1:
-                    Debug.Log("hhpp");
                     anim.Play("HP3_DeadAnim");
                     audioSource.PlayOneShot(HPDeadSound);
                     Hit_HP = false;

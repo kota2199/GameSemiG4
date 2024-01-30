@@ -109,7 +109,6 @@ public class GameManager : MonoBehaviour
     }
 
     IEnumerator GameOver() {
-        Debug.Log("�v���C���[���|���A�j���[�V�����H");
 
         yield return new WaitForSeconds(2);
 
@@ -117,7 +116,6 @@ public class GameManager : MonoBehaviour
     }
 
     void GimmickStart() {
-        Debug.Log("��Q�������J�n");
     }
 
     public void CutorialFinish()
