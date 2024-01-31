@@ -222,7 +222,7 @@ public class SnowManController : MonoBehaviour
                     {
                         if (Vector3.Distance(transform.position, standByPosition) > 10f)
                         {
-                            Debug.Log("Distance" + Vector3.Distance(transform.position, standByPosition));
+                            // Debug.Log("Distance" + Vector3.Distance(transform.position, standByPosition));
                             float step = attackSpeed * Time.deltaTime;
                             transform.position = Vector3.MoveTowards(transform.position, standByPosition, step);
                         }

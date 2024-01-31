@@ -134,6 +134,7 @@ public class SkatebdCtrl : MonoBehaviour
         sketeboard_HP += heal_value;
         ui_hp.Heal_HP = true;
         Sketeboard_HP_Limit();
+        // Debug.Log(sketeboard_HP);
     }
 
     public void Sketeboard_HP_Limit(){
