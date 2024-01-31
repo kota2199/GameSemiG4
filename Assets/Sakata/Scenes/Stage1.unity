@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4482442, g: 0.49827123, b: 0.5755804, a: 1}
+  m_IndirectSpecularColor: {r: 0.4482453, g: 0.49827206, b: 0.5755818, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -18975,6 +18975,10 @@ PrefabInstance:
       propertyPath: ui_boss
       value: 
       objectReference: {fileID: 1641854380}
+    - target: {fileID: 5779653215743290012, guid: 1d9e03a0c6674ca4eb6f5ee4248f8a48, type: 3}
+      propertyPath: obsManager
+      value: 
+      objectReference: {fileID: 1952088254}
     - target: {fileID: 5779653215743290012, guid: 1d9e03a0c6674ca4eb6f5ee4248f8a48, type: 3}
       propertyPath: speedOfObs
       value: 1
