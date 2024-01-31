@@ -69,6 +69,9 @@ public class SnowManController : MonoBehaviour
     [SerializeField]
     private UI_Key ui_key;
 
+    [SerializeField]
+    private ObsManager obsManager;
+
     private bool isReturnToBase = false;
 
     private void Start()
@@ -86,7 +89,14 @@ public class SnowManController : MonoBehaviour
     private IEnumerator attack()
     {
         yield return new WaitForSeconds(setInterval);
-        SetAttackMode(0);
+        if (!obsManager.isPause)
+        {
+            SetAttackMode(0);
+        }
+        else
+        {
+            StartCoroutine(attack());
+        }
         //???????????????????
         //if (attackCount < 2)
         //{
