@@ -47,6 +47,8 @@ public class Obs_Ctrl : MonoBehaviour
     [SerializeField]
     private UI_Key ui_key;
 
+    private GameManager manager;
+
     // 是否持续触发
 
     // 特殊效果触发位置
@@ -55,6 +57,8 @@ public class Obs_Ctrl : MonoBehaviour
         // 初始化该物体的起始点位置
         startPosition = new Vector3(which_way.transform.position.x, transform.position.y, start_point.transform.position.z);
         endPosition = new Vector3(which_way.transform.position.x, transform.position.y, end_point.transform.position.z);
+
+        manager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     void Update(){
@@ -96,7 +100,10 @@ public class Obs_Ctrl : MonoBehaviour
         float step = moveSpeed * Time.deltaTime;
 
         // 使用MoveTowards函数使物体朝着目标点移动
-        transform.position = Vector3.MoveTowards(transform.position, endPosition, step);
+        if (!manager.isGameOver)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, endPosition, step);
+        }
     }
 
     void OnTriggerEnter(Collider other){

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
@@ -39,6 +40,17 @@ public class GameManager : MonoBehaviour
     public AudioClip Stage1BGM;
     bool bossTrigger = true;
 
+    [SerializeField]
+    private GameObject ui_gameover;
+
+    [SerializeField]
+    private Text timeText;
+
+    public bool isGameOver = false;
+
+    [SerializeField]
+    private ObsManager obsManager;
+
     void Start()
     {
         // ここでFindWithTag("Player")を使えず、publicで導入する--WANG
@@ -70,14 +82,14 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (hpScript.hp <= 0)
+        {
+            Debug.Log("hp0");
+            obsManager.isPause = true;
+            StartCoroutine("GameOver");
+        }
         if (Play)
         {
-
-            if (hpScript.hp <= 0)
-            {
-                StartCoroutine("GameOver");
-            }
-
             if (BGMStart)
             {
                 audioSource.volume -= 0.5f * Time.deltaTime;
@@ -109,13 +121,27 @@ public class GameManager : MonoBehaviour
                 }
             }
         }
+
+        if (isGameOver)
+        {
+            if (Input.GetKeyDown(KeyCode.T))
+            {
+                SceneManager.LoadScene("Title");
+            }
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                SceneManager.LoadScene("Stage1");
+            }
+        }
     }
 
     IEnumerator GameOver() {
 
         yield return new WaitForSeconds(2);
-
-        SceneManager.LoadScene(GameOverScene);
+        isGameOver = true;
+        ui_gameover.SetActive(true);
+        timeText.text = GameObject.Find("UI_Timer").GetComponent<TimerCounter>().timer.ToString("f1") + "sec";
+        //SceneManager.LoadScene(GameOverScene);
     }
 
     void GimmickStart() {
