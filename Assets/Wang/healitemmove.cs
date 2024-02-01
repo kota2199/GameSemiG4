@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class healitemmove : MonoBehaviour
 {
-    public float minHeight = 0.0f;
-    public float maxHeight = 1.0f;
+    float minHeight = 2.0f;
+    float maxHeight = 2.5f;
 
     // Start is called before the first frame update
     void Start()
