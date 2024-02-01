@@ -243,7 +243,7 @@ public class SnowManController : MonoBehaviour
                         }
                         else
                         {
-                            hpUi.SetActive(true);
+                            hpUi.SetActive(false);
                             isReturnToBase = false;
                             isAttacking = false;
                             readyToAttack = false;
