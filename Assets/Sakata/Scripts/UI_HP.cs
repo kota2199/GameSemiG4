@@ -89,6 +89,7 @@ public class UI_HP : MonoBehaviour
             switch (hpManager.hp) {
                 case 1:
                     anim.Play("HP2_HealAnim");
+                    Debug.Log("HP2_HealAnim");
                     audioSource.PlayOneShot(HPHealSound);
                     Heal_HP = false;
                     break;

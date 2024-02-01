@@ -74,10 +74,16 @@ public class SnowManController : MonoBehaviour
 
     private bool isReturnToBase = false;
 
+    [SerializeField]
+    private GameObject darumaObj;
+
+    [SerializeField]
+    private Texture tex_blue, tex_red, tex_purple;
+
     private void Start()
     {
         standByPosition = transform.position;
-        attackStartPosition = player.transform.position + new Vector3(0,5,15);
+        attackStartPosition = player.transform.position + new Vector3(0,5,12);
 
         myHP = maxHP;
 
@@ -97,17 +103,6 @@ public class SnowManController : MonoBehaviour
         {
             StartCoroutine(attack());
         }
-        //???????????????????
-        //if (attackCount < 2)
-        //{
-        //    SetAttackMode(attackCount);
-        //    attackCount++;
-        //}
-        //else
-        //{
-        //    int index = Random.Range(0, 3);
-        //    SetAttackMode(index);
-        //}
     }
 
     public void SetAttackMode(int a)
@@ -130,15 +125,35 @@ public class SnowManController : MonoBehaviour
             
                 break;
         }
+        if(maxAttackCount <= 5)
+        {
+            darumaObj.GetComponent<MeshRenderer>().material.SetTexture("_MainTex", tex_blue);
+        }
+        else if (maxAttackCount <= 9)
+        {
+            darumaObj.GetComponent<MeshRenderer>().material.SetTexture("_MainTex", tex_red);
+        }
+        else if (maxAttackCount <= 13)
+        {
+            darumaObj.GetComponent<MeshRenderer>().material.SetTexture("_MainTex", tex_purple);
+        }
+
         hpUi.SetActive(true);
         isAttacking = true;
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.DownArrow))
+        if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            myHP--;
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            darumaObj.GetComponent<MeshRenderer>().material.SetTexture("_MainTex", tex_red);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            darumaObj.GetComponent<MeshRenderer>().material.SetTexture("_MainTex", tex_purple);
         }
 
         if (isAttacking)
@@ -261,28 +276,10 @@ public class SnowManController : MonoBehaviour
         {
             if (other.CompareTag("Player"))
             {
-                Debug.Log("is_dameged");
-                // (Assets\Wang\SkatebdCtrl.cs\115)
-                //other.GetComponent<SkatebdCtrl>().SketeBoard_IsDameged(-50);
                 // (Assets\Wang\Obstructions\ObsPrefab\Obs_Ctrl.cs\105)
                 other.GetComponent<SkatebdCtrl>().is_dameged = true;
                 skatebdCtrl.GetComponent<SkatebdCtrl>().sketeboard_HP -= 1;
-
-                //ui_key.MinusItemCount();
             }
-            //???????????????????????
-            //else if (other.CompareTag("Player") && !ableToAttack)
-            //{
-            //    myHP--;
-            //    if (myHP <= 0)
-            //    {
-            //        isAttacking = false;
-            //        //FlayAway
-            //        //hpUi.SetActive(false);
-            //        maxHP += 2;
-            //        myHP = maxHP;
-            //    }
-            //}
         }
     }
 }

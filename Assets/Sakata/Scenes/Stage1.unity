@@ -11365,7 +11365,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 606216847591452627, guid: c4260f77c15bf5b4380a8bd609c1ac0f, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 606216847591452627, guid: c4260f77c15bf5b4380a8bd609c1ac0f, type: 3}
       propertyPath: m_LocalScale.x
@@ -18884,7 +18884,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 606216847591452627, guid: c4260f77c15bf5b4380a8bd609c1ac0f, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 606216847591452627, guid: c4260f77c15bf5b4380a8bd609c1ac0f, type: 3}
       propertyPath: m_LocalScale.x
@@ -19005,9 +19005,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1517415853}
     - target: {fileID: 5779653215743290012, guid: 1d9e03a0c6674ca4eb6f5ee4248f8a48, type: 3}
+      propertyPath: tex_red
+      value: 
+      objectReference: {fileID: 2800000, guid: 3b64391302cf8b64da8c2a508aacf18f, type: 3}
+    - target: {fileID: 5779653215743290012, guid: 1d9e03a0c6674ca4eb6f5ee4248f8a48, type: 3}
       propertyPath: ui_boss
       value: 
       objectReference: {fileID: 1641854380}
+    - target: {fileID: 5779653215743290012, guid: 1d9e03a0c6674ca4eb6f5ee4248f8a48, type: 3}
+      propertyPath: tex_blue
+      value: 
+      objectReference: {fileID: 2800000, guid: b157c8a329e140f4eacf6a35326ed96b, type: 3}
+    - target: {fileID: 5779653215743290012, guid: 1d9e03a0c6674ca4eb6f5ee4248f8a48, type: 3}
+      propertyPath: darumaObj
+      value: 
+      objectReference: {fileID: 891840864}
     - target: {fileID: 5779653215743290012, guid: 1d9e03a0c6674ca4eb6f5ee4248f8a48, type: 3}
       propertyPath: obsManager
       value: 
@@ -19016,6 +19028,10 @@ PrefabInstance:
       propertyPath: speedOfObs
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5779653215743290012, guid: 1d9e03a0c6674ca4eb6f5ee4248f8a48, type: 3}
+      propertyPath: tex_purple
+      value: 
+      objectReference: {fileID: 2800000, guid: 6f3f6aaa6bf64c141b7ccad60d2b269a, type: 3}
     - target: {fileID: 5779653215743290012, guid: 1d9e03a0c6674ca4eb6f5ee4248f8a48, type: 3}
       propertyPath: setInterval
       value: 5
@@ -19038,15 +19054,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5779653215743290013, guid: 1d9e03a0c6674ca4eb6f5ee4248f8a48, type: 3}
       propertyPath: m_LocalScale.x
-      value: 4
+      value: 4.5
       objectReference: {fileID: 0}
     - target: {fileID: 5779653215743290013, guid: 1d9e03a0c6674ca4eb6f5ee4248f8a48, type: 3}
       propertyPath: m_LocalScale.y
-      value: 4
+      value: 4.5
       objectReference: {fileID: 0}
     - target: {fileID: 5779653215743290013, guid: 1d9e03a0c6674ca4eb6f5ee4248f8a48, type: 3}
       propertyPath: m_LocalScale.z
-      value: 4
+      value: 4.5
       objectReference: {fileID: 0}
     - target: {fileID: 5779653215743290013, guid: 1d9e03a0c6674ca4eb6f5ee4248f8a48, type: 3}
       propertyPath: m_LocalPosition.x
@@ -19098,6 +19114,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d9e03a0c6674ca4eb6f5ee4248f8a48, type: 3}
+--- !u!1 &891840864 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132148512626743, guid: 1d9e03a0c6674ca4eb6f5ee4248f8a48, type: 3}
+  m_PrefabInstance: {fileID: 891840863}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &897956201
 GameObject:
   m_ObjectHideFlags: 0
@@ -31665,6 +31686,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 013ae28b9dcc20d4d8cf287a8efb5d59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minHeight: 0
+  maxHeight: 1
 --- !u!1 &1528187438
 GameObject:
   m_ObjectHideFlags: 0
@@ -37340,6 +37363,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 013ae28b9dcc20d4d8cf287a8efb5d59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minHeight: 0
+  maxHeight: 1
 --- !u!1 &1795930654
 GameObject:
   m_ObjectHideFlags: 0
@@ -43387,6 +43412,10 @@ PrefabInstance:
       propertyPath: snowManCtrl
       value: 
       objectReference: {fileID: 1311002088}
+    - target: {fileID: 4815146442278310200, guid: 1148c26717734ee45981d88683422e3b, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4815146442278310201, guid: 1148c26717734ee45981d88683422e3b, type: 3}
       propertyPath: m_Size.x
       value: 2
