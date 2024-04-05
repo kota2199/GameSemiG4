@@ -192,15 +192,11 @@ public class SnowManController : MonoBehaviour
                     {
                         if (Vector3.Distance(transform.position, attackEndPosition + attackPositionOffset) > 0.05f)
                         {
-                            //transform.LookAt(player);
-
-                            // ?v???C???[???????????U????
                             float step = attackSpeed * Time.deltaTime;
                             transform.position = Vector3.MoveTowards(transform.position, attackEndPosition + attackPositionOffset, step);
                         }
                         else
                         {
-                            // ?U?????I?????A?A?????J?n
                             attackToPlayer_p1 = false;
                             returnToBase_p1 = true;
                         }
@@ -208,11 +204,9 @@ public class SnowManController : MonoBehaviour
 
                     if (returnToBase_p1)
                     {
-                        // ?A????
                         float step = attackSpeed * Time.deltaTime;
                         transform.position = Vector3.MoveTowards(transform.position, attackStartPosition, step);
 
-                        // ?A??????
                         if (Vector3.Distance(transform.position, attackStartPosition) < 0.1f)
                         {
                             if(attackCount <= 0)
@@ -237,7 +231,6 @@ public class SnowManController : MonoBehaviour
                     {
                         if (Vector3.Distance(transform.position, standByPosition) > 10f)
                         {
-                            // Debug.Log("Distance" + Vector3.Distance(transform.position, standByPosition));
                             float step = attackSpeed * Time.deltaTime;
                             transform.position = Vector3.MoveTowards(transform.position, standByPosition, step);
                         }

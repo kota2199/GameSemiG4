@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class RollingEnemyController : MonoBehaviour
 {
-    Rigidbody rb;
+    private Rigidbody rb;
 
     [SerializeField]
-    float power;
+    private float power;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +20,7 @@ public class RollingEnemyController : MonoBehaviour
     {
         
     }
-    void Launch()
+    private void Launch()
     {
         rb.AddForce(0, 0, -power, ForceMode.Impulse);
     }

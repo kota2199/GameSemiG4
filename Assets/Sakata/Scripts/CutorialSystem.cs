@@ -250,14 +250,14 @@ public class CutorialSystem : MonoBehaviour {
     void Tree() {
         Vector3 TreePos = DemoTree.transform.position;
         if (TreeMove) {
-            TreePos.z -= 0.015f;
+            TreePos.z -= 7 * Time.deltaTime;
             DemoTree.transform.position = TreePos;
         }
     }
     void Stone() {
         Vector3 StonePos = DemoStone.transform.position;
         if (StoneMove) {
-            StonePos.z -= 0.03f;
+            StonePos.z -= 7f * Time.deltaTime;
             DemoStone.transform.position = StonePos;
         }
     }
