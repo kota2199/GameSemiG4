@@ -19,7 +19,6 @@ public class UI_HP : MonoBehaviour
 
     PlayerHPManager hpManager;
 
-    // ここでFindWithTag("Player")を使えず、publicで導入する--WANG
     public GameObject Player;
 
     private Animator anim;
@@ -27,11 +26,10 @@ public class UI_HP : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // ここでFindWithTag("Player")を使えず、publicで導入する--WANG
-        // GameObject Player = GameObject.FindWithTag("Player");
         hpManager = Player.GetComponent<PlayerHPManager>();
 
         anim = GetComponent<Animator>();
+
         audioSource = GetComponent<AudioSource>();
 
         switch (hpManager.hp) {
@@ -69,13 +67,11 @@ public class UI_HP : MonoBehaviour
                     Hit_HP = false;
                     break;
                 case 2:
-                    Debug.Log("hhpp");
                     anim.Play("HP2_DeadAnim");
                     audioSource.PlayOneShot(HPDeadSound);
                     Hit_HP = false;
                     break;
                 case 3:
-                    Debug.Log("hhpp");
                     anim.Play("HP1_DeadAnim");
                     audioSource.PlayOneShot(HPDeadSound);
                     Hit_HP = false;
@@ -105,36 +101,6 @@ public class UI_HP : MonoBehaviour
         }
     }
 
-    /*
-    public void damaged(int hp)
-    {
-        switch (hp)
-        {
-            case 0:
-                Debug.Log("hhpp");
-                anim.Play("HP3_DeadAnim");
-                audioSource.PlayOneShot(HPDeadSound);
-                Hit_HP = false;
-                break;
-            case 1:
-                Debug.Log("hhpp");
-                anim.Play("HP2_DeadAnim");
-                audioSource.PlayOneShot(HPDeadSound);
-                Hit_HP = false;
-                break;
-            case 2:
-                Debug.Log("hhpp");
-                anim.Play("HP1_DeadAnim");
-                audioSource.PlayOneShot(HPDeadSound);
-                Hit_HP = false;
-                break;
-            default:
-                Hit_HP = false;
-                break;
-        }
-    }
-    */
-
     public void UIUpdate() {
         switch (hpManager.hp) {
             case 1:
@@ -159,33 +125,4 @@ public class UI_HP : MonoBehaviour
                 break;
         }   
     }
-
-    /*
-    public void UIUpdate(float hp)
-    {
-        switch (hp)
-        {
-            case 1:
-                Red.enabled = true;
-                Green.enabled = false;
-                Blue.enabled = false;
-                break;
-            case 2:
-                Red.enabled = true;
-                Green.enabled = true;
-                Blue.enabled = false;
-                break;
-            case 3:
-                Red.enabled = true;
-                Green.enabled = true;
-                Blue.enabled = true;
-                break;
-            default:
-                Red.enabled = false;
-                Green.enabled = false;
-                Blue.enabled = false;
-                break;
-        }
-    }
-    */
 }
