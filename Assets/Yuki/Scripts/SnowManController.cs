@@ -126,7 +126,9 @@ public class SnowManController : MonoBehaviour
 
     private void Update()
     {
+
         //攻撃フラグがtrueであれば
+
         if (isAttacking)
         {
             //Playerの前に、Playerを向いた方向でセットする
