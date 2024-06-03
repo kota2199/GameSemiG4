@@ -144,18 +144,6 @@ public class SnowManController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            darumaObj.GetComponent<MeshRenderer>().material.SetTexture("_MainTex", tex_red);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            darumaObj.GetComponent<MeshRenderer>().material.SetTexture("_MainTex", tex_purple);
-        }
-
         if (isAttacking)
         {
             //ReadyToAttack
